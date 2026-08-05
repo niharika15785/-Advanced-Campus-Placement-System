@@ -35,4 +35,4 @@ MySQL is used for storing student, company, job, application and placement-relat
 
 ## Author
 
-Niharika
+Potnuru Niharika
