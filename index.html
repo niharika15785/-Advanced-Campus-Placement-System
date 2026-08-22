@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced Campus Placement System</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: #f4f7fb;
+            color: #222;
+        }
+
+        nav {
+            background: #1e3a8a;
+            color: white;
+            padding: 18px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        nav h2 {
+            font-size: 22px;
+        }
+
+        nav button {
+            background: white;
+            color: #1e3a8a;
+            border: none;
+            padding: 10px 18px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 80px 20px;
+            background: linear-gradient(135deg, #1e3a8a, #2563eb);
+            color: white;
+        }
+
+        .hero h1 {
+            font-size: 42px;
+            margin-bottom: 15px;
+        }
+
+        .hero p {
+            font-size: 18px;
+            margin-bottom: 25px;
+        }
+
+        .hero button {
+            padding: 14px 28px;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .container {
+            width: 85%;
+            margin: 50px auto;
+        }
+
+        .container h2 {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #1e3a8a;
+        }
+
+        .cards {
+            display: flex;
+            gap: 25px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .card {
+            background: white;
+            width: 280px;
+            padding: 30px;
+            text-align: center;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+        }
+
+        .card h3 {
+            color: #1e3a8a;
+            margin-bottom: 15px;
+        }
+
+        .card p {
+            margin-bottom: 20px;
+            color: #555;
+        }
+
+        .card button, .apply-btn {
+            background: #2563eb;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .jobs {
+            margin-top: 50px;
+        }
+
+        .job-card {
+            background: white;
+            padding: 20px;
+            margin: 15px 0;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        footer {
+            background: #1e3a8a;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 50px;
+        }
+
+        @media(max-width: 700px) {
+            .hero h1 {
+                font-size: 30px;
+            }
+
+            .job-card {
+                flex-direction: column;
+                gap: 15px;
+                align-items: flex-start;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<nav>
+    <h2>Campus Placement System</h2>
+    <button onclick="showMessage('Login feature')">Login</button>
+</nav>
+
+<section class="hero">
+    <h1>Advanced Campus Placement System</h1>
+    <p>Connecting Students, Companies and Opportunities</p>
+    <button onclick="document.getElementById('roles').scrollIntoView()">Get Started</button>
+</section>
+
+<section class="container" id="roles">
+    <h2>Choose Your Role</h2>
+
+    <div class="cards">
+
+        <div class="card">
+            <h3>Student</h3>
+            <p>Register, view jobs and apply for placement opportunities.</p>
+            <button onclick="showMessage('Student Login')">Student Login</button>
+        </div>
+
+        <div class="card">
+            <h3>Company</h3>
+            <p>Register your company, post jobs and view applicants.</p>
+            <button onclick="showMessage('Company Login')">Company Login</button>
+        </div>
+
+        <div class="card">
+            <h3>Admin</h3>
+            <p>Manage students, companies, jobs and placement activities.</p>
+            <button onclick="showMessage('Admin Login')">Admin Login</button>
+        </div>
+
+    </div>
+
+    <div class="jobs">
+        <h2>Available Jobs</h2>
+
+        <div class="job-card">
+            <div>
+                <h3>Software Developer</h3>
+                <p>Company: TCS | Eligibility: CGPA 6.5+</p>
+            </div>
+            <button class="apply-btn" onclick="applyJob('Software Developer')">Apply Now</button>
+        </div>
+
+        <div class="job-card">
+            <div>
+                <h3>Java Developer</h3>
+                <p>Company: Infosys | Eligibility: CGPA 6.0+</p>
+            </div>
+            <button class="apply-btn" onclick="applyJob('Java Developer')">Apply Now</button>
+        </div>
+
+        <div class="job-card">
+            <div>
+                <h3>Web Developer</h3>
+                <p>Company: Wipro | Eligibility: CGPA 6.5+</p>
+            </div>
+            <button class="apply-btn" onclick="applyJob('Web Developer')">Apply Now</button>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <p>© 2026 Advanced Campus Placement System</p>
+</footer>
+
+<script>
+    function showMessage(feature) {
+        alert(feature + " page will be connected to the backend.");
+    }
+
+    function applyJob(job) {
+        alert("Application submitted for " + job + "!");
+    }
+</script>
+
+</body>
+</html>
