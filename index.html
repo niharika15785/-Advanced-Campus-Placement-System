@@ -3,328 +3,147 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Advanced Campus Placement System</title>
+    <title>Student Login</title>
 
     <style>
         * {
+            box-sizing: border-box;
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
             font-family: Arial, sans-serif;
         }
 
         body {
-            background: #f4f7fb;
-            color: #222;
-        }
-
-        header {
-            background: #173b7a;
-            color: white;
-            padding: 20px 60px;
+            min-height: 100vh;
             display: flex;
-            justify-content: space-between;
+            justify-content: center;
             align-items: center;
+            background: #f4f7fb;
+            padding: 20px;
         }
 
-        header h1 {
-            font-size: 24px;
-        }
-
-        nav a {
-            color: white;
-            text-decoration: none;
-            margin-left: 25px;
-        }
-
-        nav a:hover {
-            text-decoration: underline;
-        }
-
-        .hero {
-            text-align: center;
-            padding: 80px 20px;
+        .login-box {
+            width: 380px;
             background: white;
+            padding: 35px;
+            border-radius: 12px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.15);
         }
 
-        .hero h2 {
-            font-size: 40px;
+        h2 {
+            text-align: center;
             color: #173b7a;
-            margin-bottom: 20px;
+            margin-bottom: 10px;
         }
 
-        .hero p {
-            font-size: 18px;
-            color: #555;
-            margin-bottom: 30px;
+        .subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 25px;
         }
 
-        .hero button {
+        label {
+            display: block;
+            margin-bottom: 7px;
+            font-weight: bold;
+        }
+
+        input {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 18px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            font-size: 15px;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            border: none;
+            border-radius: 6px;
             background: #173b7a;
             color: white;
-            border: none;
-            padding: 14px 30px;
-            border-radius: 6px;
             font-size: 16px;
             cursor: pointer;
         }
 
-        .section {
-            padding: 50px 60px;
-            text-align: center;
-        }
-
-        .section h2 {
-            color: #173b7a;
-            margin-bottom: 30px;
-        }
-
-        .cards {
-            display: flex;
-            justify-content: center;
-            gap: 25px;
-            flex-wrap: wrap;
-        }
-
-        .card {
-            background: white;
-            width: 280px;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-        }
-
-        .card h3 {
-            color: #173b7a;
-            margin-bottom: 15px;
-        }
-
-        .card p {
-            color: #666;
-            margin-bottom: 20px;
-            line-height: 1.5;
-        }
-
-        .card a {
-            text-decoration: none;
-        }
-
-        .card button {
-            padding: 10px 20px;
-            border: none;
-            background: #173b7a;
-            color: white;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-
-        .card button:hover {
+        button:hover {
             background: #0f2a59;
         }
 
-        footer {
-            background: #173b7a;
-            color: white;
+        .register {
             text-align: center;
-            padding: 20px;
-            margin-top: 30px;
+            margin-top: 20px;
         }
 
-        @media (max-width: 700px) {
-            header {
-                flex-direction: column;
-                gap: 15px;
-                padding: 20px;
-            }
+        .register a,
+        .back {
+            color: #173b7a;
+            text-decoration: none;
+            font-weight: bold;
+        }
 
-            .hero h2 {
-                font-size: 30px;
-            }
-
-            .section {
-                padding: 40px 20px;
-            }
+        .back {
+            display: block;
+            text-align: center;
+            margin-top: 15px;
+            font-weight: normal;
         }
     </style>
 </head>
 
 <body>
 
-<header>
+    <div class="login-box">
 
-    <h1>Campus Placement System</h1>
+        <h2>Student Login</h2>
 
-    <nav>
-        <a href="#home">Home</a>
-        <a href="#features">Features</a>
-        <a href="#login">Login</a>
-    </nav>
+        <p class="subtitle">Login to your placement account</p>
 
-</header>
+        <form onsubmit="loginStudent(event)">
 
+            <label>Email</label>
+            <input
+                type="email"
+                id="email"
+                placeholder="Enter your email"
+                required
+            >
 
-<section class="hero" id="home">
+            <label>Password</label>
+            <input
+                type="password"
+                id="password"
+                placeholder="Enter your password"
+                required
+            >
 
-    <h2>Advanced Campus Placement System</h2>
+            <button type="submit">Login</button>
 
-    <p>
-        Connecting Students, Companies and Administrators
-        through a single placement platform.
-    </p>
+        </form>
 
-    <button onclick="document.getElementById('login').scrollIntoView()">
-        Get Started
-    </button>
-
-</section>
-
-
-<section class="section" id="features">
-
-    <h2>System Features</h2>
-
-    <div class="cards">
-
-        <!-- Student -->
-
-        <div class="card">
-
-            <h3>Student Registration</h3>
-
-            <p>
-                Students can register and maintain their academic profile.
-            </p>
-
-            <a href="student-login.html">
-                <button>Student</button>
-            </a>
-
+        <div class="register">
+            Don't have an account?
+            <a href="student-register.html">Register here</a>
         </div>
 
-
-        <!-- Company -->
-
-        <div class="card">
-
-            <h3>Company Registration</h3>
-
-            <p>
-                Companies can register and post placement opportunities.
-            </p>
-
-            <a href="company-login.html">
-                <button>Company</button>
-            </a>
-
-        </div>
-
-
-        <!-- Jobs -->
-
-        <div class="card">
-
-            <h3>Job Applications</h3>
-
-            <p>
-                Students can search and apply for suitable job opportunities.
-            </p>
-
-            <button>Explore Jobs</button>
-
-        </div>
-
-
-        <!-- Admin -->
-
-        <div class="card">
-
-            <h3>Placement Management</h3>
-
-            <p>
-                Administrators can manage students, companies and placement drives.
-            </p>
-
-            <a href="admin-login.html">
-                <button>Admin</button>
-            </a>
-
-        </div>
+        <a class="back" href="index.html">← Back to Home</a>
 
     </div>
 
-</section>
+    <script>
+        function loginStudent(event) {
+            event.preventDefault();
 
+            const email = document.getElementById("email").value;
+            const password = document.getElementById("password").value;
 
-<section class="section" id="login">
-
-    <h2>Login Portal</h2>
-
-    <div class="cards">
-
-
-        <!-- Student Login -->
-
-        <div class="card">
-
-            <h3>Student Login</h3>
-
-            <p>
-                Access your profile and apply for jobs.
-            </p>
-
-            <a href="student-login.html">
-                <button>Login</button>
-            </a>
-
-        </div>
-
-
-        <!-- Company Login -->
-
-        <div class="card">
-
-            <h3>Company Login</h3>
-
-            <p>
-                Post jobs and view eligible applicants.
-            </p>
-
-            <a href="company-login.html">
-                <button>Login</button>
-            </a>
-
-        </div>
-
-
-        <!-- Admin Login -->
-
-        <div class="card">
-
-            <h3>Admin Login</h3>
-
-            <p>
-                Manage the complete placement system.
-            </p>
-
-            <a href="admin-login.html">
-                <button>Login</button>
-            </a>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<footer>
-
-    <p>
-        © 2026 Advanced Campus Placement System
-    </p>
-
-</footer>
+            if (email !== "" && password !== "") {
+                window.location.href = "student-dashboard.html";
+            }
+        }
+    </script>
 
 </body>
 </html>
