@@ -19,6 +19,7 @@
             justify-content: center;
             align-items: center;
             background: #f4f7fb;
+            padding: 20px;
         }
 
         .login-box {
@@ -70,12 +71,23 @@
             background: #0f2a59;
         }
 
+        .register {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .register a,
+        .back {
+            color: #173b7a;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
         .back {
             display: block;
             text-align: center;
-            margin-top: 20px;
-            color: #173b7a;
-            text-decoration: none;
+            margin-top: 15px;
+            font-weight: normal;
         }
     </style>
 </head>
@@ -99,6 +111,11 @@
             <button type="submit">Login</button>
 
         </form>
+
+        <div class="register">
+            Don't have an account?
+            <a href="student-register.html">Register here</a>
+        </div>
 
         <a class="back" href="index.html">← Back to Home</a>
 
