@@ -36,11 +36,6 @@
             color: white;
             text-decoration: none;
             margin-left: 25px;
-            font-size: 15px;
-        }
-
-        nav a:hover {
-            text-decoration: underline;
         }
 
         .hero {
@@ -69,10 +64,6 @@
             border-radius: 6px;
             font-size: 16px;
             cursor: pointer;
-        }
-
-        .hero button:hover {
-            background: #0f2a59;
         }
 
         .section {
@@ -111,6 +102,10 @@
             line-height: 1.5;
         }
 
+        .card a {
+            text-decoration: none;
+        }
+
         .card button {
             padding: 10px 20px;
             border: none;
@@ -126,22 +121,6 @@
             text-align: center;
             padding: 20px;
             margin-top: 30px;
-        }
-
-        @media (max-width: 700px) {
-            header {
-                flex-direction: column;
-                gap: 15px;
-                padding: 20px;
-            }
-
-            .hero h2 {
-                font-size: 30px;
-            }
-
-            .section {
-                padding: 40px 20px;
-            }
         }
     </style>
 </head>
@@ -185,8 +164,8 @@
                 Students can register and maintain their academic profile.
             </p>
             <a href="student-login.html">
-            <button>Student</button>
-           </a>
+                <button>Student</button>
+            </a>
         </div>
 
         <div class="card">
@@ -226,25 +205,22 @@
         <div class="card">
             <h3>Student Login</h3>
             <p>Access your profile and apply for jobs.</p>
-            <button onclick="alert('Student Login')">
-                Login
-            </button>
+
+            <a href="student-login.html">
+                <button>Login</button>
+            </a>
         </div>
 
         <div class="card">
             <h3>Company Login</h3>
             <p>Post jobs and view eligible applicants.</p>
-            <button onclick="alert('Company Login')">
-                Login
-            </button>
+            <button>Login</button>
         </div>
 
         <div class="card">
             <h3>Admin Login</h3>
             <p>Manage the complete placement system.</p>
-            <button onclick="alert('Admin Login')">
-                Login
-            </button>
+            <button>Login</button>
         </div>
 
     </div>
