@@ -1,1 +1,257 @@
-my advanced campus placement
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Advanced Campus Placement System</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: #f4f7fb;
+            color: #222;
+        }
+
+        header {
+            background: #173b7a;
+            color: white;
+            padding: 20px 60px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        header h1 {
+            font-size: 24px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 25px;
+            font-size: 15px;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 80px 20px;
+            background: white;
+        }
+
+        .hero h2 {
+            font-size: 40px;
+            color: #173b7a;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 18px;
+            color: #555;
+            margin-bottom: 30px;
+        }
+
+        .hero button {
+            background: #173b7a;
+            color: white;
+            border: none;
+            padding: 14px 30px;
+            border-radius: 6px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .hero button:hover {
+            background: #0f2a59;
+        }
+
+        .section {
+            padding: 50px 60px;
+            text-align: center;
+        }
+
+        .section h2 {
+            color: #173b7a;
+            margin-bottom: 30px;
+        }
+
+        .cards {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            flex-wrap: wrap;
+        }
+
+        .card {
+            background: white;
+            width: 280px;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        .card h3 {
+            color: #173b7a;
+            margin-bottom: 15px;
+        }
+
+        .card p {
+            color: #666;
+            margin-bottom: 20px;
+            line-height: 1.5;
+        }
+
+        .card button {
+            padding: 10px 20px;
+            border: none;
+            background: #173b7a;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        footer {
+            background: #173b7a;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 30px;
+        }
+
+        @media (max-width: 700px) {
+            header {
+                flex-direction: column;
+                gap: 15px;
+                padding: 20px;
+            }
+
+            .hero h2 {
+                font-size: 30px;
+            }
+
+            .section {
+                padding: 40px 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h1>Campus Placement System</h1>
+
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#features">Features</a>
+        <a href="#login">Login</a>
+    </nav>
+</header>
+
+<section class="hero" id="home">
+
+    <h2>Advanced Campus Placement System</h2>
+
+    <p>
+        Connecting Students, Companies and Administrators
+        through a single placement platform.
+    </p>
+
+    <button onclick="document.getElementById('login').scrollIntoView()">
+        Get Started
+    </button>
+
+</section>
+
+<section class="section" id="features">
+
+    <h2>System Features</h2>
+
+    <div class="cards">
+
+        <div class="card">
+            <h3>Student Registration</h3>
+            <p>
+                Students can register and maintain their academic profile.
+            </p>
+            <button>Student</button>
+        </div>
+
+        <div class="card">
+            <h3>Company Registration</h3>
+            <p>
+                Companies can register and post placement opportunities.
+            </p>
+            <button>Company</button>
+        </div>
+
+        <div class="card">
+            <h3>Job Applications</h3>
+            <p>
+                Students can search and apply for suitable job opportunities.
+            </p>
+            <button>Explore Jobs</button>
+        </div>
+
+        <div class="card">
+            <h3>Placement Management</h3>
+            <p>
+                Administrators can manage students, companies and placement drives.
+            </p>
+            <button>Admin</button>
+        </div>
+
+    </div>
+
+</section>
+
+<section class="section" id="login">
+
+    <h2>Login Portal</h2>
+
+    <div class="cards">
+
+        <div class="card">
+            <h3>Student Login</h3>
+            <p>Access your profile and apply for jobs.</p>
+            <button onclick="alert('Student Login')">
+                Login
+            </button>
+        </div>
+
+        <div class="card">
+            <h3>Company Login</h3>
+            <p>Post jobs and view eligible applicants.</p>
+            <button onclick="alert('Company Login')">
+                Login
+            </button>
+        </div>
+
+        <div class="card">
+            <h3>Admin Login</h3>
+            <p>Manage the complete placement system.</p>
+            <button onclick="alert('Admin Login')">
+                Login
+            </button>
+        </div>
+
+    </div>
+
+</section>
+
+<footer>
+    <p>© 2026 Advanced Campus Placement System</p>
+</footer>
+
+</body>
+</html>
