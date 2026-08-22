@@ -38,6 +38,10 @@
             margin-left: 25px;
         }
 
+        nav a:hover {
+            text-decoration: underline;
+        }
+
         .hero {
             text-align: center;
             padding: 80px 20px;
@@ -115,6 +119,10 @@
             cursor: pointer;
         }
 
+        .card button:hover {
+            background: #0f2a59;
+        }
+
         footer {
             background: #173b7a;
             color: white;
@@ -122,12 +130,29 @@
             padding: 20px;
             margin-top: 30px;
         }
+
+        @media (max-width: 700px) {
+            header {
+                flex-direction: column;
+                gap: 15px;
+                padding: 20px;
+            }
+
+            .hero h2 {
+                font-size: 30px;
+            }
+
+            .section {
+                padding: 40px 20px;
+            }
+        }
     </style>
 </head>
 
 <body>
 
 <header>
+
     <h1>Campus Placement System</h1>
 
     <nav>
@@ -135,7 +160,9 @@
         <a href="#features">Features</a>
         <a href="#login">Login</a>
     </nav>
+
 </header>
+
 
 <section class="hero" id="home">
 
@@ -152,49 +179,80 @@
 
 </section>
 
+
 <section class="section" id="features">
 
     <h2>System Features</h2>
 
     <div class="cards">
 
+        <!-- Student -->
+
         <div class="card">
+
             <h3>Student Registration</h3>
+
             <p>
                 Students can register and maintain their academic profile.
             </p>
+
             <a href="student-login.html">
                 <button>Student</button>
             </a>
+
         </div>
 
+
+        <!-- Company -->
+
         <div class="card">
+
             <h3>Company Registration</h3>
+
             <p>
                 Companies can register and post placement opportunities.
             </p>
-            <button>Company</button>
+
+            <a href="company-login.html">
+                <button>Company</button>
+            </a>
+
         </div>
 
+
+        <!-- Jobs -->
+
         <div class="card">
+
             <h3>Job Applications</h3>
+
             <p>
                 Students can search and apply for suitable job opportunities.
             </p>
+
             <button>Explore Jobs</button>
+
         </div>
 
+
+        <!-- Admin -->
+
         <div class="card">
+
             <h3>Placement Management</h3>
+
             <p>
                 Administrators can manage students, companies and placement drives.
             </p>
+
             <button>Admin</button>
+
         </div>
 
     </div>
 
 </section>
+
 
 <section class="section" id="login">
 
@@ -202,33 +260,66 @@
 
     <div class="cards">
 
+
+        <!-- Student Login -->
+
         <div class="card">
+
             <h3>Student Login</h3>
-            <p>Access your profile and apply for jobs.</p>
+
+            <p>
+                Access your profile and apply for jobs.
+            </p>
 
             <a href="student-login.html">
                 <button>Login</button>
             </a>
+
         </div>
 
+
+        <!-- Company Login -->
+
         <div class="card">
+
             <h3>Company Login</h3>
-            <p>Post jobs and view eligible applicants.</p>
-            <button>Login</button>
+
+            <p>
+                Post jobs and view eligible applicants.
+            </p>
+
+            <a href="company-login.html">
+                <button>Login</button>
+            </a>
+
         </div>
 
+
+        <!-- Admin Login -->
+
         <div class="card">
+
             <h3>Admin Login</h3>
-            <p>Manage the complete placement system.</p>
+
+            <p>
+                Manage the complete placement system.
+            </p>
+
             <button>Login</button>
+
         </div>
 
     </div>
 
 </section>
 
+
 <footer>
-    <p>© 2026 Advanced Campus Placement System</p>
+
+    <p>
+        © 2026 Advanced Campus Placement System
+    </p>
+
 </footer>
 
 </body>
