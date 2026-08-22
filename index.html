@@ -3,147 +3,205 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Student Login</title>
+    <title>Advanced Campus Placement System</title>
 
     <style>
         * {
-            box-sizing: border-box;
             margin: 0;
             padding: 0;
+            box-sizing: border-box;
             font-family: Arial, sans-serif;
         }
 
         body {
-            min-height: 100vh;
+            background: #f4f7fb;
+            color: #222;
+        }
+
+        header {
+            background: #173b7a;
+            color: white;
+            padding: 20px 60px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 25px;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 80px 20px;
+            background: white;
+        }
+
+        .hero h2 {
+            color: #173b7a;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            margin-bottom: 30px;
+            color: #555;
+        }
+
+        .section {
+            padding: 50px 30px;
+            text-align: center;
+        }
+
+        .section h2 {
+            color: #173b7a;
+            margin-bottom: 30px;
+        }
+
+        .cards {
             display: flex;
             justify-content: center;
-            align-items: center;
-            background: #f4f7fb;
-            padding: 20px;
+            gap: 25px;
+            flex-wrap: wrap;
         }
 
-        .login-box {
-            width: 380px;
+        .card {
             background: white;
-            padding: 35px;
-            border-radius: 12px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+            width: 260px;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
         }
 
-        h2 {
-            text-align: center;
+        .card h3 {
             color: #173b7a;
-            margin-bottom: 10px;
+            margin-bottom: 15px;
         }
 
-        .subtitle {
-            text-align: center;
+        .card p {
             color: #666;
-            margin-bottom: 25px;
-        }
-
-        label {
-            display: block;
-            margin-bottom: 7px;
-            font-weight: bold;
-        }
-
-        input {
-            width: 100%;
-            padding: 12px;
-            margin-bottom: 18px;
-            border: 1px solid #ccc;
-            border-radius: 6px;
-            font-size: 15px;
+            margin-bottom: 20px;
         }
 
         button {
-            width: 100%;
-            padding: 12px;
-            border: none;
-            border-radius: 6px;
             background: #173b7a;
             color: white;
-            font-size: 16px;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 6px;
             cursor: pointer;
         }
 
-        button:hover {
-            background: #0f2a59;
-        }
-
-        .register {
-            text-align: center;
-            margin-top: 20px;
-        }
-
-        .register a,
-        .back {
-            color: #173b7a;
+        a {
             text-decoration: none;
-            font-weight: bold;
         }
 
-        .back {
-            display: block;
+        footer {
+            background: #173b7a;
+            color: white;
             text-align: center;
-            margin-top: 15px;
-            font-weight: normal;
+            padding: 20px;
         }
     </style>
 </head>
 
 <body>
 
-    <div class="login-box">
+<header>
+    <h1>Campus Placement System</h1>
 
-        <h2>Student Login</h2>
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#features">Features</a>
+        <a href="#login">Login</a>
+    </nav>
+</header>
 
-        <p class="subtitle">Login to your placement account</p>
+<section class="hero" id="home">
+    <h2>Advanced Campus Placement System</h2>
 
-        <form onsubmit="loginStudent(event)">
+    <p>
+        Connecting Students, Companies and Administrators
+        through a single placement platform.
+    </p>
+</section>
 
-            <label>Email</label>
-            <input
-                type="email"
-                id="email"
-                placeholder="Enter your email"
-                required
-            >
+<section class="section" id="features">
 
-            <label>Password</label>
-            <input
-                type="password"
-                id="password"
-                placeholder="Enter your password"
-                required
-            >
+    <h2>System Features</h2>
 
-            <button type="submit">Login</button>
+    <div class="cards">
 
-        </form>
+        <div class="card">
+            <h3>Student</h3>
+            <p>Register, login and explore placement opportunities.</p>
 
-        <div class="register">
-            Don't have an account?
-            <a href="student-register.html">Register here</a>
+            <a href="student-login.html">
+                <button>Student Login</button>
+            </a>
         </div>
 
-        <a class="back" href="index.html">← Back to Home</a>
+        <div class="card">
+            <h3>Company</h3>
+            <p>Register your company and post job opportunities.</p>
+
+            <a href="company-login.html">
+                <button>Company Login</button>
+            </a>
+        </div>
+
+        <div class="card">
+            <h3>Admin</h3>
+            <p>Manage students, companies and placement activities.</p>
+
+            <a href="admin-login.html">
+                <button>Admin Login</button>
+            </a>
+        </div>
 
     </div>
+</section>
 
-    <script>
-        function loginStudent(event) {
-            event.preventDefault();
+<section class="section" id="login">
 
-            const email = document.getElementById("email").value;
-            const password = document.getElementById("password").value;
+    <h2>Login Portal</h2>
 
-            if (email !== "" && password !== "") {
-                window.location.href = "student-dashboard.html";
-            }
-        }
-    </script>
+    <div class="cards">
+
+        <div class="card">
+            <h3>Student Login</h3>
+            <p>Access your student placement account.</p>
+
+            <a href="student-login.html">
+                <button>Login</button>
+            </a>
+        </div>
+
+        <div class="card">
+            <h3>Company Login</h3>
+            <p>Access your company placement account.</p>
+
+            <a href="company-login.html">
+                <button>Login</button>
+            </a>
+        </div>
+
+        <div class="card">
+            <h3>Admin Login</h3>
+            <p>Manage the complete placement system.</p>
+
+            <a href="admin-login.html">
+                <button>Login</button>
+            </a>
+        </div>
+
+    </div>
+</section>
+
+<footer>
+    © 2026 Advanced Campus Placement System
+</footer>
 
 </body>
 </html>
