@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Company Dashboard - Campus Placement System</title>
 
     <style>
@@ -59,45 +60,7 @@
         }
 
         .welcome p {
-            color: #555;
-        }
-
-        .dashboard-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 25px;
-        }
-
-        .card {
-            background: white;
-            padding: 30px;
-            border-radius: 10px;
-            text-align: center;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.10);
-        }
-
-        .card h3 {
-            color: #173b7a;
-            margin-bottom: 12px;
-        }
-
-        .card p {
             color: #666;
-            margin-bottom: 20px;
-        }
-
-        .card a {
-            display: inline-block;
-            background: #173b7a;
-            color: white;
-            text-decoration: none;
-            padding: 11px 20px;
-            border-radius: 6px;
-            font-weight: bold;
-        }
-
-        .card a:hover {
-            opacity: 0.9;
         }
 
         .stats {
@@ -125,6 +88,98 @@
             color: #666;
         }
 
+        .dashboard-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+        }
+
+        .card {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.10);
+        }
+
+        .card h3 {
+            color: #173b7a;
+            margin-bottom: 12px;
+        }
+
+        .card p {
+            color: #666;
+            margin-bottom: 20px;
+            line-height: 1.5;
+        }
+
+        .card button {
+            background: #173b7a;
+            color: white;
+            border: none;
+            padding: 11px 20px;
+            border-radius: 6px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .card a {
+            display: inline-block;
+            background: #173b7a;
+            color: white;
+            text-decoration: none;
+            padding: 11px 20px;
+            border-radius: 6px;
+            font-weight: bold;
+        }
+
+        .section {
+            display: none;
+            background: white;
+            margin-top: 30px;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.10);
+        }
+
+        .section h2 {
+            color: #173b7a;
+            margin-bottom: 20px;
+        }
+
+        .job-item,
+        .applicant-item,
+        .interview-item {
+            border: 1px solid #ddd;
+            padding: 18px;
+            margin-bottom: 15px;
+            border-radius: 8px;
+        }
+
+        .job-item h3,
+        .applicant-item h3,
+        .interview-item h3 {
+            color: #173b7a;
+            margin-bottom: 10px;
+        }
+
+        .job-item p,
+        .applicant-item p,
+        .interview-item p {
+            margin: 7px 0;
+            color: #555;
+        }
+
+        .close-btn {
+            margin-top: 10px;
+            background: #666;
+            color: white;
+            border: none;
+            padding: 10px 18px;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
         footer {
             background: #173b7a;
             color: white;
@@ -134,6 +189,7 @@
         }
 
         @media (max-width: 700px) {
+
             .dashboard-grid {
                 grid-template-columns: 1fr;
             }
@@ -152,16 +208,28 @@
 <body>
 
 <header>
+
     <h1>Company Portal</h1>
-    <a href="index.html" class="logout">Logout</a>
+
+    <a href="index.html" class="logout">
+        Logout
+    </a>
+
 </header>
+
 
 <div class="container">
 
     <div class="welcome">
+
         <h2>Welcome to Company Dashboard</h2>
-        <p>Manage your campus placement activities from here.</p>
+
+        <p>
+            Manage your campus placement activities from here.
+        </p>
+
     </div>
+
 
     <div class="stats">
 
@@ -171,56 +239,289 @@
         </div>
 
         <div class="stat-box">
-            <h3>0</h3>
+            <h3 id="applicantCount">0</h3>
             <p>Applicants</p>
         </div>
 
         <div class="stat-box">
-            <h3>0</h3>
-            <p>Selected Students</p>
+            <h3 id="interviewCount">0</h3>
+            <p>Interviews</p>
         </div>
 
     </div>
 
+
     <div class="dashboard-grid">
 
         <div class="card">
+
             <h3>Post Job</h3>
-            <p>Create and publish a new job opportunity.</p>
-            <a href="post-job.html">Post Job</a>
+
+            <p>
+                Create and publish a new job opportunity.
+            </p>
+
+            <a href="post-job.html">
+                Post Job
+            </a>
+
         </div>
 
+
         <div class="card">
+
             <h3>View Posted Jobs</h3>
-            <p>View all jobs posted by your company.</p>
-            <a href="view-jobs.html">View Jobs</a>
+
+            <p>
+                View all jobs posted by your company.
+            </p>
+
+            <a href="view-jobs.html">
+                View Jobs
+            </a>
+
         </div>
 
+
         <div class="card">
+
             <h3>View Applicants</h3>
-            <p>View students who applied for your jobs.</p>
-            <a href="#">View Applicants</a>
+
+            <p>
+                View students who applied for your jobs.
+            </p>
+
+            <button onclick="showApplicants()">
+                View Applicants
+            </button>
+
         </div>
 
+
         <div class="card">
+
             <h3>Manage Interviews</h3>
-            <p>Manage interview schedules and selections.</p>
-            <a href="#">Manage Interviews</a>
+
+            <p>
+                View and manage interview schedules.
+            </p>
+
+            <button onclick="showInterviews()">
+                Manage Interviews
+            </button>
+
         </div>
+
+    </div>
+
+
+    <!-- APPLICANTS SECTION -->
+
+    <div class="section" id="applicantsSection">
+
+        <h2>Student Applicants</h2>
+
+        <div id="applicantsContainer"></div>
+
+        <button class="close-btn" onclick="closeSections()">
+            Close
+        </button>
+
+    </div>
+
+
+    <!-- INTERVIEWS SECTION -->
+
+    <div class="section" id="interviewsSection">
+
+        <h2>Manage Interviews</h2>
+
+        <div id="interviewsContainer"></div>
+
+        <button class="close-btn" onclick="closeSections()">
+            Close
+        </button>
 
     </div>
 
 </div>
 
+
 <footer>
+
     © 2026 Advanced Campus Placement System
+
 </footer>
+
 
 <script>
 
-const jobs = JSON.parse(localStorage.getItem("postedJobs")) || [];
+    const jobs =
+        JSON.parse(localStorage.getItem("postedJobs")) || [];
 
-document.getElementById("jobCount").textContent = jobs.length;
+    const applications =
+        JSON.parse(localStorage.getItem("applications")) || [];
+
+    const interviews =
+        JSON.parse(localStorage.getItem("interviews")) || [];
+
+
+    document.getElementById("jobCount").textContent =
+        jobs.length;
+
+    document.getElementById("applicantCount").textContent =
+        applications.length;
+
+    document.getElementById("interviewCount").textContent =
+        interviews.length;
+
+
+    function showApplicants() {
+
+        document.getElementById("interviewsSection").style.display =
+            "none";
+
+        const section =
+            document.getElementById("applicantsSection");
+
+        const container =
+            document.getElementById("applicantsContainer");
+
+        section.style.display = "block";
+
+
+        if (applications.length === 0) {
+
+            container.innerHTML = `
+                <p>
+                    No students have applied for any job yet.
+                </p>
+            `;
+
+            return;
+        }
+
+
+        container.innerHTML = "";
+
+
+        applications.forEach(function(application) {
+
+            container.innerHTML += `
+
+                <div class="applicant-item">
+
+                    <h3>${application.jobTitle}</h3>
+
+                    <p>
+                        <strong>Student Email:</strong>
+                        ${application.studentEmail}
+                    </p>
+
+                    <p>
+                        <strong>Skills:</strong>
+                        ${application.skills}
+                    </p>
+
+                    <p>
+                        <strong>Package:</strong>
+                        ${application.salary}
+                    </p>
+
+                    <p>
+                        <strong>Location:</strong>
+                        ${application.location}
+                    </p>
+
+                    <p>
+                        <strong>Status:</strong>
+                        ${application.status}
+                    </p>
+
+                </div>
+
+            `;
+
+        });
+
+    }
+
+
+    function showInterviews() {
+
+        document.getElementById("applicantsSection").style.display =
+            "none";
+
+        const section =
+            document.getElementById("interviewsSection");
+
+        const container =
+            document.getElementById("interviewsContainer");
+
+        section.style.display = "block";
+
+
+        if (interviews.length === 0) {
+
+            container.innerHTML = `
+                <p>
+                    No interviews scheduled yet.
+                </p>
+            `;
+
+            return;
+        }
+
+
+        container.innerHTML = "";
+
+
+        interviews.forEach(function(interview) {
+
+            container.innerHTML += `
+
+                <div class="interview-item">
+
+                    <h3>${interview.jobTitle}</h3>
+
+                    <p>
+                        <strong>Student:</strong>
+                        ${interview.studentEmail}
+                    </p>
+
+                    <p>
+                        <strong>Date:</strong>
+                        ${interview.date}
+                    </p>
+
+                    <p>
+                        <strong>Time:</strong>
+                        ${interview.time}
+                    </p>
+
+                    <p>
+                        <strong>Status:</strong>
+                        ${interview.status}
+                    </p>
+
+                </div>
+
+            `;
+
+        });
+
+    }
+
+
+    function closeSections() {
+
+        document.getElementById("applicantsSection").style.display =
+            "none";
+
+        document.getElementById("interviewsSection").style.display =
+            "none";
+
+    }
 
 </script>
 
