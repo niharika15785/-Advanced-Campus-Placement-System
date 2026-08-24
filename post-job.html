@@ -96,6 +96,16 @@
             text-align: center;
             padding: 18px;
         }
+
+        .success {
+            display: none;
+            background: #d4edda;
+            color: #155724;
+            padding: 12px;
+            border-radius: 6px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
     </style>
 </head>
 
@@ -112,26 +122,43 @@
 
         <h2>Post a New Job</h2>
 
-        <form action="company-dashboard.html">
+        <div class="success" id="successMessage">
+            Job posted successfully!
+        </div>
+
+        <form id="jobForm">
 
             <label>Job Title</label>
-            <input type="text" placeholder="Enter job title" required>
+            <input type="text" id="jobTitle"
+                   placeholder="Enter job title" required>
 
             <label>Job Description</label>
-            <textarea placeholder="Enter job description" required></textarea>
+            <textarea id="jobDescription"
+                      placeholder="Enter job description"
+                      required></textarea>
 
             <label>Required Skills</label>
-            <input type="text" placeholder="Example: Java, SQL, HTML, CSS" required>
+            <input type="text" id="skills"
+                   placeholder="Example: Java, SQL, HTML, CSS"
+                   required>
 
             <label>Package / Salary</label>
-            <input type="text" placeholder="Example: 5 LPA" required>
+            <input type="text" id="salary"
+                   placeholder="Example: 5 LPA"
+                   required>
 
             <label>Minimum CGPA Required</label>
-            <input type="number" step="0.01" min="0" max="10"
-                   placeholder="Example: 7.0" required>
+            <input type="number" id="cgpa"
+                   step="0.01"
+                   min="0"
+                   max="10"
+                   placeholder="Example: 7.0"
+                   required>
 
             <label>Job Location</label>
-            <input type="text" placeholder="Enter job location" required>
+            <input type="text" id="location"
+                   placeholder="Enter job location"
+                   required>
 
             <button type="submit">Post Job</button>
 
@@ -144,6 +171,39 @@
 <footer>
     © 2026 Advanced Campus Placement System
 </footer>
+
+<script>
+
+document.getElementById("jobForm").addEventListener("submit", function(event) {
+
+    event.preventDefault();
+
+    const job = {
+        title: document.getElementById("jobTitle").value,
+        description: document.getElementById("jobDescription").value,
+        skills: document.getElementById("skills").value,
+        salary: document.getElementById("salary").value,
+        cgpa: document.getElementById("cgpa").value,
+        location: document.getElementById("location").value
+    };
+
+    let jobs = JSON.parse(localStorage.getItem("postedJobs")) || [];
+
+    jobs.push(job);
+
+    localStorage.setItem("postedJobs", JSON.stringify(jobs));
+
+    document.getElementById("successMessage").style.display = "block";
+
+    document.getElementById("jobForm").reset();
+
+    setTimeout(function() {
+        window.location.href = "company-dashboard.html";
+    }, 1500);
+
+});
+
+</script>
 
 </body>
 </html>
