@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Company Dashboard - Campus Placement System</title>
+    <title>Company Dashboard - Advanced Campus Placement System</title>
 
     <style>
         * {
@@ -16,6 +16,7 @@
 
         body {
             background: #f4f7fb;
+            color: #333;
         }
 
         header {
@@ -42,15 +43,15 @@
 
         .container {
             width: 90%;
-            max-width: 1100px;
+            max-width: 1150px;
             margin: 40px auto;
         }
 
         .welcome {
             background: white;
-            padding: 25px;
+            padding: 30px;
             border-radius: 10px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.10);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.10);
             margin-bottom: 30px;
         }
 
@@ -64,23 +65,23 @@
         }
 
         .stats {
-            display: flex;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
             gap: 20px;
             margin-bottom: 30px;
         }
 
         .stat-box {
-            flex: 1;
             background: white;
-            padding: 20px;
+            padding: 25px;
             text-align: center;
             border-radius: 10px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.10);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.10);
         }
 
         .stat-box h3 {
             color: #173b7a;
-            font-size: 28px;
+            font-size: 30px;
             margin-bottom: 8px;
         }
 
@@ -99,12 +100,13 @@
             padding: 30px;
             border-radius: 10px;
             text-align: center;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.10);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.10);
         }
 
         .card h3 {
             color: #173b7a;
             margin-bottom: 12px;
+            font-size: 20px;
         }
 
         .card p {
@@ -119,7 +121,7 @@
             background: #173b7a;
             color: white;
             text-decoration: none;
-            padding: 11px 20px;
+            padding: 12px 22px;
             border-radius: 6px;
             font-weight: bold;
             border: none;
@@ -138,36 +140,93 @@
             margin-top: 30px;
             padding: 30px;
             border-radius: 10px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.10);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.10);
         }
 
         .section h2 {
             color: #173b7a;
-            margin-bottom: 20px;
+            margin-bottom: 25px;
         }
 
         .item {
             border: 1px solid #ddd;
-            padding: 20px;
-            margin-bottom: 15px;
+            padding: 22px;
+            margin-bottom: 18px;
             border-radius: 8px;
+            background: #fff;
         }
 
         .item h3 {
             color: #173b7a;
-            margin-bottom: 10px;
+            margin-bottom: 15px;
         }
 
         .item p {
-            margin: 7px 0;
+            margin: 8px 0;
             color: #555;
+        }
+
+        .schedule-box {
+            background: #f4f7fb;
+            padding: 20px;
+            margin-top: 20px;
+            border-radius: 8px;
+        }
+
+        .schedule-box h4 {
+            color: #173b7a;
+            margin-bottom: 15px;
+        }
+
+        .schedule-box label {
+            display: block;
+            font-weight: bold;
+            margin: 10px 0 7px;
+        }
+
+        .schedule-box input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+        }
+
+        .schedule-btn {
+            margin-top: 15px;
+            padding: 12px 20px;
+            background: #173b7a;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .schedule-btn:hover {
+            background: #0f2a59;
+        }
+
+        .success-message {
+            display: none;
+            background: #d4edda;
+            color: #155724;
+            padding: 13px;
+            border-radius: 6px;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+
+        .empty {
+            text-align: center;
+            padding: 25px;
+            color: #666;
         }
 
         .close-btn {
             background: #666;
             color: white;
             border: none;
-            padding: 10px 18px;
+            padding: 11px 20px;
             border-radius: 6px;
             cursor: pointer;
             margin-top: 10px;
@@ -183,16 +242,20 @@
 
         @media (max-width: 700px) {
 
+            header {
+                padding: 20px;
+            }
+
+            .stats {
+                grid-template-columns: 1fr;
+            }
+
             .dashboard-grid {
                 grid-template-columns: 1fr;
             }
 
-            .stats {
-                flex-direction: column;
-            }
-
-            header {
-                padding: 20px;
+            .container {
+                width: 94%;
             }
         }
     </style>
@@ -213,36 +276,60 @@
 
 <div class="container">
 
+
+    <!-- WELCOME -->
+
     <div class="welcome">
 
         <h2>Welcome to Company Dashboard</h2>
 
         <p>
-            Manage your campus placement activities from here.
+            Manage jobs, applicants and interviews from your company portal.
         </p>
 
     </div>
 
 
+    <!-- STATISTICS -->
+
     <div class="stats">
 
         <div class="stat-box">
+
             <h3 id="jobCount">0</h3>
-            <p>Jobs Posted</p>
+
+            <p>
+                Jobs Posted
+            </p>
+
         </div>
 
+
         <div class="stat-box">
+
             <h3 id="applicantCount">0</h3>
-            <p>Applicants</p>
+
+            <p>
+                Applicants
+            </p>
+
         </div>
 
+
         <div class="stat-box">
+
             <h3 id="interviewCount">0</h3>
-            <p>Interviews</p>
+
+            <p>
+                Interviews
+            </p>
+
         </div>
 
     </div>
 
+
+    <!-- DASHBOARD OPTIONS -->
 
     <div class="dashboard-grid">
 
@@ -254,7 +341,8 @@
             <h3>Post Job</h3>
 
             <p>
-                Create and publish a new job opportunity.
+                Create and publish new job opportunities
+                for eligible students.
             </p>
 
             <a href="post-job.html">
@@ -264,31 +352,31 @@
         </div>
 
 
-        <!-- VIEW POSTED JOBS -->
+        <!-- VIEW JOBS -->
 
         <div class="card">
 
             <h3>View Posted Jobs</h3>
 
             <p>
-                View all jobs posted by your company.
+                View all job opportunities posted by your company.
             </p>
 
             <a href="view-jobs.html">
-                View Jobs
+                View Posted Jobs
             </a>
 
         </div>
 
 
-        <!-- VIEW APPLICANTS -->
+        <!-- APPLICANTS -->
 
         <div class="card">
 
             <h3>View Applicants</h3>
 
             <p>
-                View students who applied for your jobs.
+                View students who have applied for your jobs.
             </p>
 
             <button onclick="showApplicants()">
@@ -298,14 +386,14 @@
         </div>
 
 
-        <!-- MANAGE INTERVIEWS -->
+        <!-- INTERVIEWS -->
 
         <div class="card">
 
             <h3>Manage Interviews</h3>
 
             <p>
-                Schedule and manage student interviews.
+                Schedule interviews and view scheduled interviews.
             </p>
 
             <button onclick="showInterviews()">
@@ -317,7 +405,7 @@
     </div>
 
 
-    <!-- APPLICANTS -->
+    <!-- APPLICANTS SECTION -->
 
     <div class="section" id="applicantsSection">
 
@@ -325,22 +413,31 @@
 
         <div id="applicantsContainer"></div>
 
-        <button class="close-btn" onclick="closeSections()">
+        <button class="close-btn" onclick="closeAllSections()">
             Close
         </button>
 
     </div>
 
 
-    <!-- INTERVIEWS -->
+    <!-- INTERVIEWS SECTION -->
 
     <div class="section" id="interviewsSection">
 
         <h2>Manage Interviews</h2>
 
+        <div
+            class="success-message"
+            id="successMessage">
+
+            Interview scheduled successfully!
+
+        </div>
+
+
         <div id="interviewsContainer"></div>
 
-        <button class="close-btn" onclick="closeSections()">
+        <button class="close-btn" onclick="closeAllSections()">
             Close
         </button>
 
@@ -358,19 +455,26 @@
 
 <script>
 
-    /* GET SAVED DATA */
 
-    const jobs =
-        JSON.parse(localStorage.getItem("postedJobs")) || [];
+/* ==========================================
+   LOAD SAVED DATA
+========================================== */
 
-    const applications =
-        JSON.parse(localStorage.getItem("applications")) || [];
+let jobs =
+    JSON.parse(localStorage.getItem("postedJobs")) || [];
 
-    const interviews =
-        JSON.parse(localStorage.getItem("interviews")) || [];
+let applications =
+    JSON.parse(localStorage.getItem("applications")) || [];
+
+let interviews =
+    JSON.parse(localStorage.getItem("interviews")) || [];
 
 
-    /* DASHBOARD COUNTS */
+/* ==========================================
+   UPDATE DASHBOARD COUNTS
+========================================== */
+
+function updateCounts() {
 
     document.getElementById("jobCount").textContent =
         jobs.length;
@@ -381,42 +485,64 @@
     document.getElementById("interviewCount").textContent =
         interviews.length;
 
+}
 
-    /* VIEW APPLICANTS */
-
-    function showApplicants() {
-
-        document.getElementById("interviewsSection").style.display =
-            "none";
-
-        const section =
-            document.getElementById("applicantsSection");
-
-        const container =
-            document.getElementById("applicantsContainer");
-
-        section.style.display = "block";
+updateCounts();
 
 
-        if (applications.length === 0) {
+/* ==========================================
+   SHOW APPLICANTS
+========================================== */
 
-            container.innerHTML = `
-                <div class="item">
-                    <h3>No Applicants Yet</h3>
-                    <p>
-                        Students have not applied for any jobs yet.
-                    </p>
-                </div>
-            `;
+function showApplicants() {
 
-            return;
-        }
+    document.getElementById(
+        "interviewsSection"
+    ).style.display = "none";
 
 
-        container.innerHTML = "";
+    const section =
+        document.getElementById(
+            "applicantsSection"
+        );
 
 
-        applications.forEach(function(application, index) {
+    const container =
+        document.getElementById(
+            "applicantsContainer"
+        );
+
+
+    section.style.display = "block";
+
+
+    container.innerHTML = "";
+
+
+    if (applications.length === 0) {
+
+        container.innerHTML = `
+
+            <div class="empty">
+
+                <h3>No Applicants Yet</h3>
+
+                <p>
+                    No students have applied for your
+                    posted jobs yet.
+                </p>
+
+            </div>
+
+        `;
+
+        return;
+
+    }
+
+
+    applications.forEach(
+        function(application) {
 
             container.innerHTML += `
 
@@ -427,27 +553,42 @@
                     </h3>
 
                     <p>
-                        <strong>Student Email:</strong>
+                        <strong>
+                            Student Email:
+                        </strong>
+
                         ${application.studentEmail}
                     </p>
 
                     <p>
-                        <strong>Skills:</strong>
+                        <strong>
+                            Skills:
+                        </strong>
+
                         ${application.skills}
                     </p>
 
                     <p>
-                        <strong>Package:</strong>
+                        <strong>
+                            Package:
+                        </strong>
+
                         ${application.salary}
                     </p>
 
                     <p>
-                        <strong>Location:</strong>
+                        <strong>
+                            Location:
+                        </strong>
+
                         ${application.location}
                     </p>
 
                     <p>
-                        <strong>Application Status:</strong>
+                        <strong>
+                            Application Status:
+                        </strong>
+
                         ${application.status}
                     </p>
 
@@ -455,100 +596,358 @@
 
             `;
 
-        });
-
-    }
-
-
-    /* MANAGE INTERVIEWS */
-
-    function showInterviews() {
-
-        document.getElementById("applicantsSection").style.display =
-            "none";
-
-        const section =
-            document.getElementById("interviewsSection");
-
-        const container =
-            document.getElementById("interviewsContainer");
-
-        section.style.display = "block";
-
-
-        if (interviews.length === 0) {
-
-            container.innerHTML = `
-
-                <div class="item">
-
-                    <h3>No Interviews Scheduled</h3>
-
-                    <p>
-                        No interviews have been scheduled yet.
-                    </p>
-
-                </div>
-
-            `;
-
-            return;
         }
+    );
+
+}
 
 
-        container.innerHTML = "";
+/* ==========================================
+   SHOW INTERVIEWS
+========================================== */
+
+function showInterviews() {
+
+    document.getElementById(
+        "applicantsSection"
+    ).style.display = "none";
 
 
-        interviews.forEach(function(interview) {
+    const section =
+        document.getElementById(
+            "interviewsSection"
+        );
 
-            container.innerHTML += `
 
-                <div class="item">
+    section.style.display = "block";
 
-                    <h3>
-                        ${interview.jobTitle}
-                    </h3>
 
-                    <p>
-                        <strong>Student:</strong>
-                        ${interview.studentEmail}
-                    </p>
+    renderInterviews();
 
-                    <p>
-                        <strong>Date:</strong>
-                        ${interview.date}
-                    </p>
+}
 
-                    <p>
-                        <strong>Time:</strong>
-                        ${interview.time}
-                    </p>
 
-                    <p>
-                        <strong>Status:</strong>
-                        ${interview.status}
-                    </p>
+/* ==========================================
+   RENDER INTERVIEWS
+========================================== */
 
-                </div>
+function renderInterviews() {
 
-            `;
+    const container =
+        document.getElementById(
+            "interviewsContainer"
+        );
 
-        });
+
+    container.innerHTML = "";
+
+
+    if (applications.length === 0) {
+
+        container.innerHTML = `
+
+            <div class="empty">
+
+                <h3>
+                    No Applicants Available
+                </h3>
+
+                <p>
+                    A student must apply for a job
+                    before an interview can be scheduled.
+                </p>
+
+            </div>
+
+        `;
+
+        return;
 
     }
 
 
-    /* CLOSE SECTIONS */
+    applications.forEach(
+        function(application, index) {
 
-    function closeSections() {
 
-        document.getElementById("applicantsSection").style.display =
-            "none";
+            const existingInterview =
+                interviews.find(
+                    function(interview) {
 
-        document.getElementById("interviewsSection").style.display =
-            "none";
+                        return (
+
+                            interview.studentEmail ===
+                            application.studentEmail
+
+                            &&
+
+                            interview.jobTitle ===
+                            application.jobTitle
+
+                        );
+
+                    }
+                );
+
+
+            /* ==================================
+               ALREADY SCHEDULED
+            ================================== */
+
+            if (existingInterview) {
+
+                container.innerHTML += `
+
+                    <div class="item">
+
+                        <h3>
+                            ${application.jobTitle}
+                        </h3>
+
+                        <p>
+                            <strong>
+                                Student:
+                            </strong>
+
+                            ${application.studentEmail}
+                        </p>
+
+                        <p>
+                            <strong>
+                                Interview Date:
+                            </strong>
+
+                            ${existingInterview.date}
+                        </p>
+
+                        <p>
+                            <strong>
+                                Interview Time:
+                            </strong>
+
+                            ${existingInterview.time}
+                        </p>
+
+                        <p>
+                            <strong>
+                                Status:
+                            </strong>
+
+                            ${existingInterview.status}
+                        </p>
+
+                    </div>
+
+                `;
+
+            }
+
+
+            /* ==================================
+               NOT SCHEDULED
+            ================================== */
+
+            else {
+
+                container.innerHTML += `
+
+                    <div class="item">
+
+                        <h3>
+                            ${application.jobTitle}
+                        </h3>
+
+                        <p>
+                            <strong>
+                                Student:
+                            </strong>
+
+                            ${application.studentEmail}
+                        </p>
+
+                        <p>
+                            <strong>
+                                Application Status:
+                            </strong>
+
+                            ${application.status}
+                        </p>
+
+
+                        <div class="schedule-box">
+
+                            <h4>
+                                Schedule Interview
+                            </h4>
+
+
+                            <label>
+                                Interview Date
+                            </label>
+
+                            <input
+                                type="date"
+                                id="date-${index}"
+                            >
+
+
+                            <label>
+                                Interview Time
+                            </label>
+
+                            <input
+                                type="time"
+                                id="time-${index}"
+                            >
+
+
+                            <button
+                                class="schedule-btn"
+                                onclick="scheduleInterview(${index})">
+
+                                Schedule Interview
+
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                `;
+
+            }
+
+        }
+    );
+
+}
+
+
+/* ==========================================
+   SCHEDULE INTERVIEW
+========================================== */
+
+function scheduleInterview(index) {
+
+
+    const application =
+        applications[index];
+
+
+    const dateInput =
+        document.getElementById(
+            "date-" + index
+        );
+
+
+    const timeInput =
+        document.getElementById(
+            "time-" + index
+        );
+
+
+    const date =
+        dateInput.value;
+
+
+    const time =
+        timeInput.value;
+
+
+    if (date === "") {
+
+        alert(
+            "Please select an interview date."
+        );
+
+        return;
 
     }
+
+
+    if (time === "") {
+
+        alert(
+            "Please select an interview time."
+        );
+
+        return;
+
+    }
+
+
+    const newInterview = {
+
+        studentEmail:
+            application.studentEmail,
+
+        jobTitle:
+            application.jobTitle,
+
+        date:
+            date,
+
+        time:
+            time,
+
+        status:
+            "Scheduled"
+
+    };
+
+
+    interviews.push(
+        newInterview
+    );
+
+
+    localStorage.setItem(
+        "interviews",
+        JSON.stringify(interviews)
+    );
+
+
+    updateCounts();
+
+
+    document.getElementById(
+        "successMessage"
+    ).style.display = "block";
+
+
+    renderInterviews();
+
+
+    setTimeout(
+        function() {
+
+            document.getElementById(
+                "successMessage"
+            ).style.display = "none";
+
+        },
+        2500
+    );
+
+}
+
+
+/* ==========================================
+   CLOSE SECTIONS
+========================================== */
+
+function closeAllSections() {
+
+    document.getElementById(
+        "applicantsSection"
+    ).style.display = "none";
+
+
+    document.getElementById(
+        "interviewsSection"
+    ).style.display = "none";
+
+}
 
 </script>
 
