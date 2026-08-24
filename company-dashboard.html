@@ -113,17 +113,8 @@
             line-height: 1.5;
         }
 
+        .card a,
         .card button {
-            background: #173b7a;
-            color: white;
-            border: none;
-            padding: 11px 20px;
-            border-radius: 6px;
-            font-weight: bold;
-            cursor: pointer;
-        }
-
-        .card a {
             display: inline-block;
             background: #173b7a;
             color: white;
@@ -131,6 +122,14 @@
             padding: 11px 20px;
             border-radius: 6px;
             font-weight: bold;
+            border: none;
+            cursor: pointer;
+            font-size: 15px;
+        }
+
+        .card a:hover,
+        .card button:hover {
+            background: #0f2a59;
         }
 
         .section {
@@ -147,37 +146,31 @@
             margin-bottom: 20px;
         }
 
-        .job-item,
-        .applicant-item,
-        .interview-item {
+        .item {
             border: 1px solid #ddd;
-            padding: 18px;
+            padding: 20px;
             margin-bottom: 15px;
             border-radius: 8px;
         }
 
-        .job-item h3,
-        .applicant-item h3,
-        .interview-item h3 {
+        .item h3 {
             color: #173b7a;
             margin-bottom: 10px;
         }
 
-        .job-item p,
-        .applicant-item p,
-        .interview-item p {
+        .item p {
             margin: 7px 0;
             color: #555;
         }
 
         .close-btn {
-            margin-top: 10px;
             background: #666;
             color: white;
             border: none;
             padding: 10px 18px;
             border-radius: 6px;
             cursor: pointer;
+            margin-top: 10px;
         }
 
         footer {
@@ -253,6 +246,9 @@
 
     <div class="dashboard-grid">
 
+
+        <!-- POST JOB -->
+
         <div class="card">
 
             <h3>Post Job</h3>
@@ -267,6 +263,8 @@
 
         </div>
 
+
+        <!-- VIEW POSTED JOBS -->
 
         <div class="card">
 
@@ -283,6 +281,8 @@
         </div>
 
 
+        <!-- VIEW APPLICANTS -->
+
         <div class="card">
 
             <h3>View Applicants</h3>
@@ -298,12 +298,14 @@
         </div>
 
 
+        <!-- MANAGE INTERVIEWS -->
+
         <div class="card">
 
             <h3>Manage Interviews</h3>
 
             <p>
-                View and manage interview schedules.
+                Schedule and manage student interviews.
             </p>
 
             <button onclick="showInterviews()">
@@ -315,7 +317,7 @@
     </div>
 
 
-    <!-- APPLICANTS SECTION -->
+    <!-- APPLICANTS -->
 
     <div class="section" id="applicantsSection">
 
@@ -330,7 +332,7 @@
     </div>
 
 
-    <!-- INTERVIEWS SECTION -->
+    <!-- INTERVIEWS -->
 
     <div class="section" id="interviewsSection">
 
@@ -356,6 +358,8 @@
 
 <script>
 
+    /* GET SAVED DATA */
+
     const jobs =
         JSON.parse(localStorage.getItem("postedJobs")) || [];
 
@@ -366,6 +370,8 @@
         JSON.parse(localStorage.getItem("interviews")) || [];
 
 
+    /* DASHBOARD COUNTS */
+
     document.getElementById("jobCount").textContent =
         jobs.length;
 
@@ -375,6 +381,8 @@
     document.getElementById("interviewCount").textContent =
         interviews.length;
 
+
+    /* VIEW APPLICANTS */
 
     function showApplicants() {
 
@@ -393,9 +401,12 @@
         if (applications.length === 0) {
 
             container.innerHTML = `
-                <p>
-                    No students have applied for any job yet.
-                </p>
+                <div class="item">
+                    <h3>No Applicants Yet</h3>
+                    <p>
+                        Students have not applied for any jobs yet.
+                    </p>
+                </div>
             `;
 
             return;
@@ -405,13 +416,15 @@
         container.innerHTML = "";
 
 
-        applications.forEach(function(application) {
+        applications.forEach(function(application, index) {
 
             container.innerHTML += `
 
-                <div class="applicant-item">
+                <div class="item">
 
-                    <h3>${application.jobTitle}</h3>
+                    <h3>
+                        ${application.jobTitle}
+                    </h3>
 
                     <p>
                         <strong>Student Email:</strong>
@@ -434,7 +447,7 @@
                     </p>
 
                     <p>
-                        <strong>Status:</strong>
+                        <strong>Application Status:</strong>
                         ${application.status}
                     </p>
 
@@ -446,6 +459,8 @@
 
     }
 
+
+    /* MANAGE INTERVIEWS */
 
     function showInterviews() {
 
@@ -464,9 +479,17 @@
         if (interviews.length === 0) {
 
             container.innerHTML = `
-                <p>
-                    No interviews scheduled yet.
-                </p>
+
+                <div class="item">
+
+                    <h3>No Interviews Scheduled</h3>
+
+                    <p>
+                        No interviews have been scheduled yet.
+                    </p>
+
+                </div>
+
             `;
 
             return;
@@ -480,9 +503,11 @@
 
             container.innerHTML += `
 
-                <div class="interview-item">
+                <div class="item">
 
-                    <h3>${interview.jobTitle}</h3>
+                    <h3>
+                        ${interview.jobTitle}
+                    </h3>
 
                     <p>
                         <strong>Student:</strong>
@@ -512,6 +537,8 @@
 
     }
 
+
+    /* CLOSE SECTIONS */
 
     function closeSections() {
 
