@@ -1,12 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Student Dashboard - Campus Placement System</title>
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>
+        Student Dashboard - Advanced Campus Placement System
+    </title>
 
     <style>
+
         * {
             margin: 0;
             padding: 0;
@@ -16,6 +23,7 @@
 
         body {
             background: #f4f7fb;
+            color: #333;
         }
 
         header {
@@ -42,15 +50,15 @@
 
         .container {
             width: 90%;
-            max-width: 1100px;
+            max-width: 1150px;
             margin: 40px auto;
         }
 
         .welcome {
             background: white;
-            padding: 25px;
+            padding: 30px;
             border-radius: 10px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.10);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.10);
             margin-bottom: 30px;
         }
 
@@ -60,6 +68,31 @@
         }
 
         .welcome p {
+            color: #666;
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .stat-box {
+            background: white;
+            padding: 25px;
+            text-align: center;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.10);
+        }
+
+        .stat-box h3 {
+            color: #173b7a;
+            font-size: 30px;
+            margin-bottom: 8px;
+        }
+
+        .stat-box p {
             color: #666;
         }
 
@@ -74,7 +107,7 @@
             padding: 30px;
             border-radius: 10px;
             text-align: center;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.10);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.10);
         }
 
         .card h3 {
@@ -88,43 +121,102 @@
             line-height: 1.5;
         }
 
-        .card a {
-            display: inline-block;
+        .card button {
             background: #173b7a;
             color: white;
-            text-decoration: none;
+            border: none;
+            padding: 12px 22px;
+            border-radius: 6px;
+            font-weight: bold;
+            cursor: pointer;
+            font-size: 15px;
+        }
+
+        .card button:hover {
+            background: #0f2a59;
+        }
+
+        .section {
+            display: none;
+            background: white;
+            margin-top: 30px;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.10);
+        }
+
+        .section h2 {
+            color: #173b7a;
+            margin-bottom: 25px;
+        }
+
+        .job-item,
+        .application-item,
+        .interview-item {
+            border: 1px solid #ddd;
+            padding: 22px;
+            margin-bottom: 18px;
+            border-radius: 8px;
+        }
+
+        .job-item h3,
+        .application-item h3,
+        .interview-item h3 {
+            color: #173b7a;
+            margin-bottom: 12px;
+        }
+
+        .job-item p,
+        .application-item p,
+        .interview-item p {
+            margin: 8px 0;
+            color: #555;
+        }
+
+        .apply-btn {
+            margin-top: 15px;
+            background: #173b7a;
+            color: white;
+            border: none;
             padding: 11px 20px;
             border-radius: 6px;
+            cursor: pointer;
             font-weight: bold;
         }
 
-        .card a:hover {
-            opacity: 0.9;
+        .apply-btn:hover {
+            background: #0f2a59;
         }
 
-        .stats {
-            display: flex;
-            gap: 20px;
-            margin-bottom: 30px;
+        .applied {
+            background: #666;
+            cursor: default;
         }
 
-        .stat-box {
-            flex: 1;
-            background: white;
-            padding: 20px;
+        .close-btn {
+            background: #666;
+            color: white;
+            border: none;
+            padding: 11px 20px;
+            border-radius: 6px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        .empty {
             text-align: center;
-            border-radius: 10px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.10);
-        }
-
-        .stat-box h3 {
-            color: #173b7a;
-            font-size: 28px;
-            margin-bottom: 8px;
-        }
-
-        .stat-box p {
+            padding: 25px;
             color: #666;
+        }
+
+        .success {
+            display: none;
+            background: #d4edda;
+            color: #155724;
+            padding: 13px;
+            border-radius: 6px;
+            margin-bottom: 20px;
+            font-weight: bold;
         }
 
         footer {
@@ -137,28 +229,40 @@
 
         @media (max-width: 700px) {
 
+            header {
+                padding: 20px;
+            }
+
+            .stats {
+                grid-template-columns: 1fr;
+            }
+
             .dashboard-grid {
                 grid-template-columns: 1fr;
             }
 
-            .stats {
-                flex-direction: column;
+            .container {
+                width: 94%;
             }
 
-            header {
-                padding: 20px;
-            }
         }
+
     </style>
+
 </head>
+
 
 <body>
 
+
 <header>
 
-    <h1>Student Portal</h1>
+    <h1>
+        Student Portal
+    </h1>
 
-    <a href="index.html" class="logout">
+    <a href="index.html"
+       class="logout">
         Logout
     </a>
 
@@ -167,22 +271,32 @@
 
 <div class="container">
 
+
+    <!-- WELCOME -->
+
     <div class="welcome">
 
-        <h2>Welcome to Student Dashboard</h2>
+        <h2>
+            Welcome, Student!
+        </h2>
 
         <p>
-            Explore placement opportunities and manage your applications.
+            Explore job opportunities and manage
+            your campus placement activities.
         </p>
 
     </div>
 
 
+    <!-- STATISTICS -->
+
     <div class="stats">
 
         <div class="stat-box">
 
-            <h3 id="jobCount">0</h3>
+            <h3 id="jobCount">
+                0
+            </h3>
 
             <p>
                 Available Jobs
@@ -193,7 +307,9 @@
 
         <div class="stat-box">
 
-            <h3 id="applicationCount">0</h3>
+            <h3 id="applicationCount">
+                0
+            </h3>
 
             <p>
                 My Applications
@@ -204,81 +320,189 @@
 
         <div class="stat-box">
 
-            <h3>0</h3>
+            <h3 id="interviewCount">
+                0
+            </h3>
 
             <p>
-                Selected
+                Interviews
             </p>
 
         </div>
 
     </div>
 
+
+    <!-- DASHBOARD CARDS -->
 
     <div class="dashboard-grid">
 
 
+        <!-- AVAILABLE JOBS -->
+
         <div class="card">
 
-            <h3>View Available Jobs</h3>
+            <h3>
+                Available Jobs
+            </h3>
 
             <p>
-                View all job opportunities posted by companies.
+                View jobs posted by companies
+                and apply for suitable opportunities.
             </p>
 
-            <a href="available-jobs.html">
+            <button onclick="showJobs()">
                 View Jobs
-            </a>
+            </button>
 
         </div>
 
 
+        <!-- MY APPLICATIONS -->
+
         <div class="card">
 
-            <h3>My Applications</h3>
-
-            <p>
-                Track the jobs you have applied for.
-            </p>
-
-            <a href="my-applications.html">
+            <h3>
                 My Applications
-            </a>
+            </h3>
+
+            <p>
+                Check the jobs you have applied for
+                and application status.
+            </p>
+
+            <button onclick="showApplications()">
+                My Applications
+            </button>
 
         </div>
 
+
+        <!-- INTERVIEWS -->
 
         <div class="card">
 
-            <h3>My Profile</h3>
+            <h3>
+                Interview Schedule
+            </h3>
 
             <p>
-                View and manage your student profile information.
+                View your scheduled interviews,
+                dates and timings.
             </p>
 
-            <a href="student-profile.html">
-                View Profile
-            </a>
+            <button onclick="showInterviews()">
+                View Interviews
+            </button>
 
         </div>
 
+
+        <!-- PLACEMENT STATUS -->
 
         <div class="card">
 
-            <h3>Placement Results</h3>
+            <h3>
+                Placement Status
+            </h3>
 
             <p>
-                Check your placement selection and interview results.
+                Check your current placement
+                application status.
             </p>
 
-            <a href="#">
-                View Results
-            </a>
+            <button onclick="showStatus()">
+                View Status
+            </button>
 
         </div>
-
 
     </div>
+
+
+    <!-- AVAILABLE JOBS SECTION -->
+
+    <div class="section"
+         id="jobsSection">
+
+        <h2>
+            Available Jobs
+        </h2>
+
+        <div id="jobsContainer"></div>
+
+        <button class="close-btn"
+                onclick="closeSections()">
+
+            Close
+
+        </button>
+
+    </div>
+
+
+    <!-- APPLICATIONS SECTION -->
+
+    <div class="section"
+         id="applicationsSection">
+
+        <h2>
+            My Applications
+        </h2>
+
+        <div id="applicationsContainer"></div>
+
+        <button class="close-btn"
+                onclick="closeSections()">
+
+            Close
+
+        </button>
+
+    </div>
+
+
+    <!-- INTERVIEWS SECTION -->
+
+    <div class="section"
+         id="interviewsSection">
+
+        <h2>
+            Interview Schedule
+        </h2>
+
+        <div id="interviewsContainer"></div>
+
+        <button class="close-btn"
+                onclick="closeSections()">
+
+            Close
+
+        </button>
+
+    </div>
+
+
+    <!-- STATUS SECTION -->
+
+    <div class="section"
+         id="statusSection">
+
+        <h2>
+            Placement Status
+        </h2>
+
+        <div id="statusContainer"></div>
+
+        <button class="close-btn"
+                onclick="closeSections()">
+
+            Close
+
+        </button>
+
+    </div>
+
 
 </div>
 
@@ -292,21 +516,637 @@
 
 <script>
 
-    const jobs =
-        JSON.parse(localStorage.getItem("postedJobs")) || [];
 
-    const applications =
-        JSON.parse(localStorage.getItem("applications")) || [];
+/* ==========================================
+   LOAD DATA
+========================================== */
+
+let jobs =
+    JSON.parse(localStorage.getItem("postedJobs")) || [];
+
+let applications =
+    JSON.parse(localStorage.getItem("applications")) || [];
+
+let interviews =
+    JSON.parse(localStorage.getItem("interviews")) || [];
 
 
-    document.getElementById("jobCount").textContent =
-        jobs.length;
+/* ==========================================
+   STUDENT EMAIL
+========================================== */
+
+let studentEmail =
+    localStorage.getItem("studentEmail");
 
 
-    document.getElementById("applicationCount").textContent =
-        applications.length;
+if (!studentEmail) {
+
+    studentEmail = "student@example.com";
+
+}
+
+
+/* ==========================================
+   UPDATE COUNTS
+========================================== */
+
+function updateCounts() {
+
+    document.getElementById(
+        "jobCount"
+    ).textContent = jobs.length;
+
+
+    const myApplications =
+        applications.filter(function(application) {
+
+            return application.studentEmail ===
+                   studentEmail;
+
+        });
+
+
+    const myInterviews =
+        interviews.filter(function(interview) {
+
+            return interview.studentEmail ===
+                   studentEmail;
+
+        });
+
+
+    document.getElementById(
+        "applicationCount"
+    ).textContent =
+        myApplications.length;
+
+
+    document.getElementById(
+        "interviewCount"
+    ).textContent =
+        myInterviews.length;
+
+}
+
+
+updateCounts();
+
+
+/* ==========================================
+   CLOSE ALL SECTIONS
+========================================== */
+
+function closeSections() {
+
+    document.getElementById(
+        "jobsSection"
+    ).style.display = "none";
+
+
+    document.getElementById(
+        "applicationsSection"
+    ).style.display = "none";
+
+
+    document.getElementById(
+        "interviewsSection"
+    ).style.display = "none";
+
+
+    document.getElementById(
+        "statusSection"
+    ).style.display = "none";
+
+}
+
+
+/* ==========================================
+   AVAILABLE JOBS
+========================================== */
+
+function showJobs() {
+
+    closeSections();
+
+
+    const section =
+        document.getElementById(
+            "jobsSection"
+        );
+
+
+    const container =
+        document.getElementById(
+            "jobsContainer"
+        );
+
+
+    section.style.display = "block";
+
+
+    container.innerHTML = "";
+
+
+    if (jobs.length === 0) {
+
+        container.innerHTML = `
+
+            <div class="empty">
+
+                <h3>
+                    No Jobs Available
+                </h3>
+
+                <p>
+                    Companies have not posted
+                    any jobs yet.
+                </p>
+
+            </div>
+
+        `;
+
+        return;
+
+    }
+
+
+    jobs.forEach(function(job, index) {
+
+
+        const alreadyApplied =
+            applications.some(function(application) {
+
+                return (
+
+                    application.studentEmail ===
+                    studentEmail
+
+                    &&
+
+                    application.jobTitle ===
+                    job.title
+
+                );
+
+            });
+
+
+        container.innerHTML += `
+
+            <div class="job-item">
+
+                <h3>
+                    ${job.title || "Job Opportunity"}
+                </h3>
+
+                <p>
+                    <strong>
+                        Description:
+                    </strong>
+
+                    ${job.description || "Not provided"}
+                </p>
+
+                <p>
+                    <strong>
+                        Required Skills:
+                    </strong>
+
+                    ${job.skills || "Not specified"}
+                </p>
+
+                <p>
+                    <strong>
+                        Package:
+                    </strong>
+
+                    ${job.salary || "Not specified"}
+                </p>
+
+                <p>
+                    <strong>
+                        Minimum CGPA:
+                    </strong>
+
+                    ${job.cgpa || "Not specified"}
+                </p>
+
+                <p>
+                    <strong>
+                        Location:
+                    </strong>
+
+                    ${job.location || "Not specified"}
+                </p>
+
+
+                ${
+                    alreadyApplied
+
+                    ?
+
+                    `
+                    <button class="apply-btn applied"
+                            disabled>
+
+                        Already Applied
+
+                    </button>
+                    `
+
+                    :
+
+                    `
+                    <button class="apply-btn"
+                            onclick="applyForJob(${index})">
+
+                        Apply Now
+
+                    </button>
+                    `
+                }
+
+            </div>
+
+        `;
+
+    });
+
+}
+
+
+/* ==========================================
+   APPLY FOR JOB
+========================================== */
+
+function applyForJob(index) {
+
+    const job =
+        jobs[index];
+
+
+    const newApplication = {
+
+        studentEmail:
+            studentEmail,
+
+        jobTitle:
+            job.title || "Job Opportunity",
+
+        skills:
+            job.skills || "Not specified",
+
+        salary:
+            job.salary || "Not specified",
+
+        location:
+            job.location || "Not specified",
+
+        status:
+            "Applied"
+
+    };
+
+
+    applications.push(
+        newApplication
+    );
+
+
+    localStorage.setItem(
+        "applications",
+        JSON.stringify(applications)
+    );
+
+
+    updateCounts();
+
+
+    alert(
+        "Application submitted successfully!"
+    );
+
+
+    showJobs();
+
+}
+
+
+/* ==========================================
+   MY APPLICATIONS
+========================================== */
+
+function showApplications() {
+
+    closeSections();
+
+
+    const section =
+        document.getElementById(
+            "applicationsSection"
+        );
+
+
+    const container =
+        document.getElementById(
+            "applicationsContainer"
+        );
+
+
+    section.style.display = "block";
+
+
+    container.innerHTML = "";
+
+
+    const myApplications =
+        applications.filter(function(application) {
+
+            return application.studentEmail ===
+                   studentEmail;
+
+        });
+
+
+    if (myApplications.length === 0) {
+
+        container.innerHTML = `
+
+            <div class="empty">
+
+                <h3>
+                    No Applications
+                </h3>
+
+                <p>
+                    You have not applied for any
+                    jobs yet.
+                </p>
+
+            </div>
+
+        `;
+
+        return;
+
+    }
+
+
+    myApplications.forEach(
+        function(application) {
+
+            container.innerHTML += `
+
+                <div class="application-item">
+
+                    <h3>
+                        ${application.jobTitle}
+                    </h3>
+
+                    <p>
+                        <strong>
+                            Skills:
+                        </strong>
+
+                        ${application.skills}
+                    </p>
+
+                    <p>
+                        <strong>
+                            Package:
+                        </strong>
+
+                        ${application.salary}
+                    </p>
+
+                    <p>
+                        <strong>
+                            Location:
+                        </strong>
+
+                        ${application.location}
+                    </p>
+
+                    <p>
+                        <strong>
+                            Status:
+                        </strong>
+
+                        ${application.status}
+                    </p>
+
+                </div>
+
+            `;
+
+        }
+    );
+
+}
+
+
+/* ==========================================
+   INTERVIEWS
+========================================== */
+
+function showInterviews() {
+
+    closeSections();
+
+
+    const section =
+        document.getElementById(
+            "interviewsSection"
+        );
+
+
+    const container =
+        document.getElementById(
+            "interviewsContainer"
+        );
+
+
+    section.style.display = "block";
+
+
+    container.innerHTML = "";
+
+
+    const myInterviews =
+        interviews.filter(function(interview) {
+
+            return interview.studentEmail ===
+                   studentEmail;
+
+        });
+
+
+    if (myInterviews.length === 0) {
+
+        container.innerHTML = `
+
+            <div class="empty">
+
+                <h3>
+                    No Interviews Scheduled
+                </h3>
+
+                <p>
+                    No interview has been scheduled
+                    for you yet.
+                </p>
+
+            </div>
+
+        `;
+
+        return;
+
+    }
+
+
+    myInterviews.forEach(
+        function(interview) {
+
+            container.innerHTML += `
+
+                <div class="interview-item">
+
+                    <h3>
+                        ${interview.jobTitle}
+                    </h3>
+
+                    <p>
+                        <strong>
+                            Date:
+                        </strong>
+
+                        ${interview.date}
+                    </p>
+
+                    <p>
+                        <strong>
+                            Time:
+                        </strong>
+
+                        ${interview.time}
+                    </p>
+
+                    <p>
+                        <strong>
+                            Status:
+                        </strong>
+
+                        ${interview.status}
+                    </p>
+
+                </div>
+
+            `;
+
+        }
+    );
+
+}
+
+
+/* ==========================================
+   PLACEMENT STATUS
+========================================== */
+
+function showStatus() {
+
+    closeSections();
+
+
+    const section =
+        document.getElementById(
+            "statusSection"
+        );
+
+
+    const container =
+        document.getElementById(
+            "statusContainer"
+        );
+
+
+    section.style.display = "block";
+
+
+    container.innerHTML = "";
+
+
+    const myApplications =
+        applications.filter(function(application) {
+
+            return application.studentEmail ===
+                   studentEmail;
+
+        });
+
+
+    if (myApplications.length === 0) {
+
+        container.innerHTML = `
+
+            <div class="empty">
+
+                <h3>
+                    No Placement Activity
+                </h3>
+
+                <p>
+                    Apply for a job to start your
+                    placement journey.
+                </p>
+
+            </div>
+
+        `;
+
+        return;
+
+    }
+
+
+    myApplications.forEach(
+        function(application) {
+
+            let statusText =
+                application.status ||
+                "Applied";
+
+
+            container.innerHTML += `
+
+                <div class="application-item">
+
+                    <h3>
+                        ${application.jobTitle}
+                    </h3>
+
+                    <p>
+                        <strong>
+                            Application Status:
+                        </strong>
+
+                        ${statusText}
+                    </p>
+
+                </div>
+
+            `;
+
+        }
+    );
+
+}
 
 </script>
 
+
 </body>
+
 </html>
