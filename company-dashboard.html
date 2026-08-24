@@ -2,15 +2,12 @@
 <html lang="en">
 
 <head>
-
     <meta charset="UTF-8">
 
     <meta name="viewport"
           content="width=device-width, initial-scale=1.0">
 
-    <title>
-        Company Dashboard - Advanced Campus Placement System
-    </title>
+    <title>Company Dashboard - Advanced Campus Placement System</title>
 
     <style>
 
@@ -30,7 +27,6 @@
             background: #173b7a;
             color: white;
             padding: 20px 50px;
-
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -210,10 +206,6 @@
             cursor: pointer;
         }
 
-        .schedule-btn:hover {
-            background: #0f2a59;
-        }
-
         .success-message {
             display: none;
             background: #d4edda;
@@ -265,40 +257,28 @@
             .container {
                 width: 94%;
             }
-
         }
 
     </style>
-
 </head>
 
 
 <body>
 
 
-<!-- HEADER -->
-
 <header>
 
-    <h1>
-        Company Portal
-    </h1>
+    <h1>Company Portal</h1>
 
-    <a href="index.html"
-       class="logout">
-
+    <a href="index.html" class="logout">
         Logout
-
     </a>
 
 </header>
 
 
-
 <div class="container">
 
-
-    <!-- WELCOME -->
 
     <div class="welcome">
 
@@ -314,16 +294,11 @@
     </div>
 
 
-
-    <!-- STATISTICS -->
-
     <div class="stats">
 
         <div class="stat-box">
 
-            <h3 id="jobCount">
-                0
-            </h3>
+            <h3 id="jobCount">0</h3>
 
             <p>
                 Jobs Posted
@@ -334,9 +309,7 @@
 
         <div class="stat-box">
 
-            <h3 id="applicantCount">
-                0
-            </h3>
+            <h3 id="applicantCount">0</h3>
 
             <p>
                 Applicants
@@ -347,9 +320,7 @@
 
         <div class="stat-box">
 
-            <h3 id="interviewCount">
-                0
-            </h3>
+            <h3 id="interviewCount">0</h3>
 
             <p>
                 Interviews
@@ -360,13 +331,8 @@
     </div>
 
 
-
-    <!-- DASHBOARD CARDS -->
-
     <div class="dashboard-grid">
 
-
-        <!-- POST JOB -->
 
         <div class="card">
 
@@ -380,16 +346,11 @@
             </p>
 
             <a href="post-job.html">
-
                 Post Job
-
             </a>
 
         </div>
 
-
-
-        <!-- VIEW JOBS -->
 
         <div class="card">
 
@@ -403,16 +364,11 @@
             </p>
 
             <a href="view-jobs.html">
-
                 View Posted Jobs
-
             </a>
 
         </div>
 
-
-
-        <!-- APPLICANTS -->
 
         <div class="card">
 
@@ -426,16 +382,11 @@
             </p>
 
             <button onclick="showApplicants()">
-
                 View Applicants
-
             </button>
 
         </div>
 
-
-
-        <!-- INTERVIEWS -->
 
         <div class="card">
 
@@ -449,9 +400,7 @@
             </p>
 
             <button onclick="showInterviews()">
-
                 Manage Interviews
-
             </button>
 
         </div>
@@ -459,11 +408,7 @@
     </div>
 
 
-
-    <!-- APPLICANTS SECTION -->
-
-    <div class="section"
-         id="applicantsSection">
+    <div class="section" id="applicantsSection">
 
         <h2>
             Student Applicants
@@ -481,16 +426,11 @@
     </div>
 
 
-
-    <!-- INTERVIEWS SECTION -->
-
-    <div class="section"
-         id="interviewsSection">
+    <div class="section" id="interviewsSection">
 
         <h2>
             Manage Interviews
         </h2>
-
 
         <div class="success-message"
              id="successMessage">
@@ -499,9 +439,7 @@
 
         </div>
 
-
         <div id="interviewsContainer"></div>
-
 
         <button class="close-btn"
                 onclick="closeSections()">
@@ -515,7 +453,6 @@
 </div>
 
 
-
 <footer>
 
     © 2026 Advanced Campus Placement System
@@ -523,13 +460,8 @@
 </footer>
 
 
-
 <script>
 
-
-/* ==========================================
-   LOAD DATA
-========================================== */
 
 let jobs =
     JSON.parse(
@@ -549,37 +481,21 @@ let interviews =
     ) || [];
 
 
-
-/* ==========================================
-   UPDATE COUNTS
-========================================== */
-
 function updateCounts() {
 
-    document.getElementById(
-        "jobCount"
-    ).textContent = jobs.length;
+    document.getElementById("jobCount").textContent =
+        jobs.length;
 
+    document.getElementById("applicantCount").textContent =
+        applications.length;
 
-    document.getElementById(
-        "applicantCount"
-    ).textContent = applications.length;
-
-
-    document.getElementById(
-        "interviewCount"
-    ).textContent = interviews.length;
-
+    document.getElementById("interviewCount").textContent =
+        interviews.length;
 }
 
 
 updateCounts();
 
-
-
-/* ==========================================
-   VIEW APPLICANTS
-========================================== */
 
 function showApplicants() {
 
@@ -605,12 +521,6 @@ function showApplicants() {
 
     container.innerHTML = "";
 
-
-    /*
-       IMPORTANT:
-       Read applications directly from
-       localStorage again.
-    */
 
     applications =
         JSON.parse(
@@ -638,7 +548,6 @@ function showApplicants() {
         `;
 
         return;
-
     }
 
 
@@ -653,59 +562,44 @@ function showApplicants() {
                         ${application.jobTitle || "Job Application"}
                     </h3>
 
-
                     <p>
-
                         <strong>
                             Student Email:
                         </strong>
 
                         ${application.studentEmail || "Not Available"}
-
                     </p>
 
-
                     <p>
-
                         <strong>
                             Skills:
                         </strong>
 
                         ${application.skills || "Not Specified"}
-
                     </p>
 
-
                     <p>
-
                         <strong>
                             Package:
                         </strong>
 
                         ${application.salary || "Not Specified"}
-
                     </p>
 
-
                     <p>
-
                         <strong>
                             Location:
                         </strong>
 
                         ${application.location || "Not Specified"}
-
                     </p>
 
-
                     <p>
-
                         <strong>
-                            Application Status:
+                            Status:
                         </strong>
 
                         ${application.status || "Applied"}
-
                     </p>
 
                 </div>
@@ -714,14 +608,8 @@ function showApplicants() {
 
         }
     );
-
 }
 
-
-
-/* ==========================================
-   MANAGE INTERVIEWS
-========================================== */
 
 function showInterviews() {
 
@@ -730,24 +618,14 @@ function showInterviews() {
     ).style.display = "none";
 
 
-    const section =
-        document.getElementById(
-            "interviewsSection"
-        );
-
-
-    section.style.display = "block";
+    document.getElementById(
+        "interviewsSection"
+    ).style.display = "block";
 
 
     renderInterviews();
-
 }
 
-
-
-/* ==========================================
-   RENDER INTERVIEWS
-========================================== */
 
 function renderInterviews() {
 
@@ -759,10 +637,6 @@ function renderInterviews() {
 
     container.innerHTML = "";
 
-
-    /*
-       Reload latest data
-    */
 
     applications =
         JSON.parse(
@@ -790,9 +664,8 @@ function renderInterviews() {
                 </h3>
 
                 <p>
-                    A student must apply for
-                    a job before scheduling
-                    an interview.
+                    A student must apply for a
+                    job before scheduling an interview.
                 </p>
 
             </div>
@@ -800,18 +673,12 @@ function renderInterviews() {
         `;
 
         return;
-
     }
 
 
     applications.forEach(
         function(application, index) {
 
-
-            /*
-               Check whether interview
-               already exists
-            */
 
             const existingInterview =
                 interviews.find(
@@ -833,11 +700,6 @@ function renderInterviews() {
                 );
 
 
-
-            /* ============================
-               ALREADY SCHEDULED
-            ============================ */
-
             if (existingInterview) {
 
                 container.innerHTML += `
@@ -848,48 +710,36 @@ function renderInterviews() {
                             ${application.jobTitle}
                         </h3>
 
-
                         <p>
-
                             <strong>
                                 Student Email:
                             </strong>
 
                             ${application.studentEmail}
-
                         </p>
 
-
                         <p>
-
                             <strong>
                                 Interview Date:
                             </strong>
 
                             ${existingInterview.date}
-
                         </p>
 
-
                         <p>
-
                             <strong>
                                 Interview Time:
                             </strong>
 
                             ${existingInterview.time}
-
                         </p>
 
-
                         <p>
-
                             <strong>
                                 Status:
                             </strong>
 
                             ${existingInterview.status}
-
                         </p>
 
                     </div>
@@ -897,12 +747,6 @@ function renderInterviews() {
                 `;
 
             }
-
-
-
-            /* ============================
-               NOT SCHEDULED
-            ============================ */
 
             else {
 
@@ -914,26 +758,20 @@ function renderInterviews() {
                             ${application.jobTitle}
                         </h3>
 
-
                         <p>
-
                             <strong>
                                 Student Email:
                             </strong>
 
                             ${application.studentEmail}
-
                         </p>
 
-
                         <p>
-
                             <strong>
                                 Application Status:
                             </strong>
 
                             ${application.status || "Applied"}
-
                         </p>
 
 
@@ -948,22 +786,18 @@ function renderInterviews() {
                                 Interview Date
                             </label>
 
-
                             <input
                                 type="date"
                                 id="date-${index}">
-
 
 
                             <label>
                                 Interview Time
                             </label>
 
-
                             <input
                                 type="time"
                                 id="time-${index}">
-
 
 
                             <button
@@ -984,14 +818,8 @@ function renderInterviews() {
 
         }
     );
-
 }
 
-
-
-/* ==========================================
-   SCHEDULE INTERVIEW
-========================================== */
 
 function scheduleInterview(index) {
 
@@ -1023,31 +851,25 @@ function scheduleInterview(index) {
         ).value;
 
 
-    if (!date) {
+    if (date === "") {
 
         alert(
             "Please select an interview date."
         );
 
         return;
-
     }
 
 
-    if (!time) {
+    if (time === "") {
 
         alert(
             "Please select an interview time."
         );
 
         return;
-
     }
 
-
-    /*
-       Prevent duplicate interview
-    */
 
     const alreadyScheduled =
         interviews.some(
@@ -1072,19 +894,14 @@ function scheduleInterview(index) {
     if (alreadyScheduled) {
 
         alert(
-            "Interview is already scheduled for this student."
+            "Interview is already scheduled."
         );
 
         renderInterviews();
 
         return;
-
     }
 
-
-    /*
-       Create interview
-    */
 
     const newInterview = {
 
@@ -1111,36 +928,19 @@ function scheduleInterview(index) {
     );
 
 
-    /*
-       Save interview
-    */
-
     localStorage.setItem(
-
         "interviews",
-
-        JSON.stringify(
-            interviews
-        )
-
+        JSON.stringify(interviews)
     );
 
 
     updateCounts();
 
 
-    /*
-       Success message
-    */
-
     document.getElementById(
         "successMessage"
     ).style.display = "block";
 
-
-    /*
-       Refresh interview list
-    */
 
     renderInterviews();
 
@@ -1155,14 +955,8 @@ function scheduleInterview(index) {
         },
         2500
     );
-
 }
 
-
-
-/* ==========================================
-   CLOSE
-========================================== */
 
 function closeSections() {
 
