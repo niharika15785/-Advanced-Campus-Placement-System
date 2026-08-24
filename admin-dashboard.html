@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - Campus Placement System</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: #f4f7fb;
+            color: #222;
+        }
+
+        header {
+            background: #173b7a;
+            color: white;
+            padding: 20px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logout-btn {
+            background: #fff;
+            color: #173b7a;
+            padding: 10px 18px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .welcome {
+            text-align: center;
+            padding: 40px 20px;
+        }
+
+        .welcome h2 {
+            color: #173b7a;
+            margin-bottom: 10px;
+        }
+
+        .dashboard {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            flex-wrap: wrap;
+            padding: 20px 40px 50px;
+        }
+
+        .card {
+            background: white;
+            width: 250px;
+            padding: 30px 20px;
+            text-align: center;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        .card h3 {
+            color: #173b7a;
+            margin-bottom: 15px;
+        }
+
+        .card p {
+            color: #666;
+            margin-bottom: 20px;
+        }
+
+        .card a {
+            display: inline-block;
+            background: #173b7a;
+            color: white;
+            text-decoration: none;
+            padding: 10px 16px;
+            border-radius: 6px;
+        }
+
+        footer {
+            background: #173b7a;
+            color: white;
+            text-align: center;
+            padding: 18px;
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h1>Admin Dashboard</h1>
+    <a href="index.html" class="logout-btn">Logout</a>
+</header>
+
+<section class="welcome">
+    <h2>Welcome, Administrator</h2>
+    <p>Manage the complete campus placement system from one place.</p>
+</section>
+
+<section class="dashboard">
+
+    <div class="card">
+        <h3>Manage Students</h3>
+        <p>View and manage registered students.</p>
+        <a href="#">View Students</a>
+    </div>
+
+    <div class="card">
+        <h3>Manage Companies</h3>
+        <p>View and manage registered companies.</p>
+        <a href="#">View Companies</a>
+    </div>
+
+    <div class="card">
+        <h3>View Jobs</h3>
+        <p>View all job opportunities posted by companies.</p>
+        <a href="#">View Jobs</a>
+    </div>
+
+    <div class="card">
+        <h3>Applications</h3>
+        <p>View student job applications.</p>
+        <a href="#">View Applications</a>
+    </div>
+
+    <div class="card">
+        <h3>Manage Results</h3>
+        <p>Manage placement and interview results.</p>
+        <a href="#">Manage Results</a>
+    </div>
+
+</section>
+
+<footer>
+    © 2026 Advanced Campus Placement System
+</footer>
+
+</body>
+</html>
