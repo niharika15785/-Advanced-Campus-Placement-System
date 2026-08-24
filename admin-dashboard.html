@@ -1,11 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
     <title>Admin Dashboard - Advanced Campus Placement System</title>
 
     <style>
+
         * {
             margin: 0;
             padding: 0;
@@ -22,6 +28,7 @@
             background: #173b7a;
             color: white;
             padding: 20px 50px;
+
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -50,8 +57,8 @@
             background: white;
             padding: 30px;
             border-radius: 10px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.10);
             margin-bottom: 30px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.10);
         }
 
         .welcome h2 {
@@ -70,7 +77,7 @@
             margin-bottom: 30px;
         }
 
-        .stat {
+        .stat-box {
             background: white;
             padding: 25px;
             text-align: center;
@@ -78,17 +85,17 @@
             box-shadow: 0 4px 15px rgba(0,0,0,0.10);
         }
 
-        .stat h3 {
+        .stat-box h3 {
             color: #173b7a;
             font-size: 30px;
             margin-bottom: 8px;
         }
 
-        .stat p {
+        .stat-box p {
             color: #666;
         }
 
-        .grid {
+        .dashboard-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
             gap: 25px;
@@ -109,8 +116,8 @@
 
         .card p {
             color: #666;
-            margin-bottom: 20px;
             line-height: 1.5;
+            margin-bottom: 20px;
         }
 
         .card button {
@@ -119,8 +126,9 @@
             border: none;
             padding: 12px 22px;
             border-radius: 6px;
-            font-weight: bold;
             cursor: pointer;
+            font-size: 15px;
+            font-weight: bold;
         }
 
         .card button:hover {
@@ -130,8 +138,8 @@
         .section {
             display: none;
             background: white;
-            margin-top: 30px;
             padding: 30px;
+            margin-top: 30px;
             border-radius: 10px;
             box-shadow: 0 4px 15px rgba(0,0,0,0.10);
         }
@@ -143,14 +151,14 @@
 
         .item {
             border: 1px solid #ddd;
-            padding: 20px;
             border-radius: 8px;
+            padding: 20px;
             margin-bottom: 15px;
         }
 
         .item h3 {
             color: #173b7a;
-            margin-bottom: 10px;
+            margin-bottom: 12px;
         }
 
         .item p {
@@ -160,17 +168,17 @@
 
         .empty {
             text-align: center;
-            padding: 25px;
+            padding: 30px;
             color: #666;
         }
 
-        .close {
+        .close-btn {
             margin-top: 10px;
             padding: 11px 20px;
-            border: none;
-            border-radius: 6px;
             background: #666;
             color: white;
+            border: none;
+            border-radius: 6px;
             cursor: pointer;
         }
 
@@ -183,8 +191,12 @@
         }
 
         @media (max-width: 800px) {
-            .stats,
-            .grid {
+
+            .stats {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .dashboard-grid {
                 grid-template-columns: 1fr;
             }
 
@@ -192,170 +204,301 @@
                 padding: 20px;
             }
 
-            .container {
-                width: 94%;
-            }
         }
+
+        @media (max-width: 500px) {
+
+            .stats {
+                grid-template-columns: 1fr;
+            }
+
+        }
+
     </style>
+
 </head>
+
 
 <body>
 
-<header>
-    <h1>Admin Portal</h1>
 
-    <a href="index.html" class="logout">
+<header>
+
+    <h1>
+        Admin Portal
+    </h1>
+
+    <a href="index.html"
+       class="logout">
+
         Logout
+
     </a>
+
 </header>
+
 
 
 <div class="container">
 
+
+    <!-- WELCOME -->
+
     <div class="welcome">
-        <h2>Welcome, Administrator</h2>
+
+        <h2>
+            Welcome to Admin Dashboard
+        </h2>
+
         <p>
-            Monitor students, companies, jobs and placement activities.
+            Monitor students, companies, jobs
+            and placement applications.
         </p>
+
     </div>
+
 
 
     <!-- STATISTICS -->
 
     <div class="stats">
 
-        <div class="stat">
-            <h3 id="studentCount">0</h3>
-            <p>Registered Students</p>
+        <div class="stat-box">
+
+            <h3 id="studentCount">
+                0
+            </h3>
+
+            <p>
+                Students
+            </p>
+
         </div>
 
-        <div class="stat">
-            <h3 id="companyCount">0</h3>
-            <p>Registered Companies</p>
+
+        <div class="stat-box">
+
+            <h3 id="companyCount">
+                0
+            </h3>
+
+            <p>
+                Companies
+            </p>
+
         </div>
 
-        <div class="stat">
-            <h3 id="jobCount">0</h3>
-            <p>Jobs Posted</p>
+
+        <div class="stat-box">
+
+            <h3 id="jobCount">
+                0
+            </h3>
+
+            <p>
+                Jobs
+            </p>
+
         </div>
 
-        <div class="stat">
-            <h3 id="applicationCount">0</h3>
-            <p>Applications</p>
+
+        <div class="stat-box">
+
+            <h3 id="applicationCount">
+                0
+            </h3>
+
+            <p>
+                Applications
+            </p>
+
         </div>
 
     </div>
 
 
-    <!-- ADMIN OPTIONS -->
 
-    <div class="grid">
+    <!-- DASHBOARD CARDS -->
+
+    <div class="dashboard-grid">
+
+
+        <!-- STUDENTS -->
 
         <div class="card">
-            <h3>View Students</h3>
+
+            <h3>
+                View Students
+            </h3>
+
             <p>
-                View all students registered in the placement system.
+                View all students registered
+                in the placement system.
             </p>
 
             <button onclick="showStudents()">
+
                 View Students
+
             </button>
+
         </div>
 
 
+
+        <!-- COMPANIES -->
+
         <div class="card">
-            <h3>View Companies</h3>
+
+            <h3>
+                View Companies
+            </h3>
+
             <p>
-                View companies registered with the placement cell.
+                View companies registered
+                for campus placements.
             </p>
 
             <button onclick="showCompanies()">
+
                 View Companies
+
             </button>
+
         </div>
 
 
+
+        <!-- JOBS -->
+
         <div class="card">
-            <h3>View Jobs</h3>
+
+            <h3>
+                View Jobs
+            </h3>
+
             <p>
-                Monitor all jobs posted by companies.
+                Monitor job opportunities
+                posted by companies.
             </p>
 
             <button onclick="showJobs()">
+
                 View Jobs
+
             </button>
+
         </div>
 
 
+
+        <!-- APPLICATIONS -->
+
         <div class="card">
-            <h3>View Applications</h3>
+
+            <h3>
+                View Applications
+            </h3>
+
             <p>
-                Monitor student applications and placement activity.
+                Monitor student applications
+                for available jobs.
             </p>
 
             <button onclick="showApplications()">
+
                 View Applications
+
             </button>
+
         </div>
 
     </div>
 
 
-    <!-- STUDENTS -->
 
-    <div class="section" id="studentsSection">
+    <!-- STUDENTS SECTION -->
 
-        <h2>Registered Students</h2>
+    <div class="section"
+         id="studentsSection">
+
+        <h2>
+            Registered Students
+        </h2>
 
         <div id="studentsContainer"></div>
 
-        <button class="close" onclick="closeSections()">
+        <button class="close-btn"
+                onclick="closeSections()">
+
             Close
+
         </button>
 
     </div>
 
 
-    <!-- COMPANIES -->
 
-    <div class="section" id="companiesSection">
+    <!-- COMPANIES SECTION -->
 
-        <h2>Registered Companies</h2>
+    <div class="section"
+         id="companiesSection">
+
+        <h2>
+            Registered Companies
+        </h2>
 
         <div id="companiesContainer"></div>
 
-        <button class="close" onclick="closeSections()">
+        <button class="close-btn"
+                onclick="closeSections()">
+
             Close
+
         </button>
 
     </div>
 
 
-    <!-- JOBS -->
 
-    <div class="section" id="jobsSection">
+    <!-- JOBS SECTION -->
 
-        <h2>Posted Jobs</h2>
+    <div class="section"
+         id="jobsSection">
+
+        <h2>
+            Posted Jobs
+        </h2>
 
         <div id="jobsContainer"></div>
 
-        <button class="close" onclick="closeSections()">
+        <button class="close-btn"
+                onclick="closeSections()">
+
             Close
+
         </button>
 
     </div>
 
 
-    <!-- APPLICATIONS -->
 
-    <div class="section" id="applicationsSection">
+    <!-- APPLICATIONS SECTION -->
 
-        <h2>Student Applications</h2>
+    <div class="section"
+         id="applicationsSection">
+
+        <h2>
+            Student Applications
+        </h2>
 
         <div id="applicationsContainer"></div>
 
-        <button class="close" onclick="closeSections()">
+        <button class="close-btn"
+                onclick="closeSections()">
+
             Close
+
         </button>
 
     </div>
@@ -363,296 +506,718 @@
 </div>
 
 
+
 <footer>
+
     © 2026 Advanced Campus Placement System
+
 </footer>
+
 
 
 <script>
 
-let students =
-    JSON.parse(localStorage.getItem("students")) || [];
 
-let companies =
-    JSON.parse(localStorage.getItem("companies")) || [];
+/* =====================================================
+   HELPER FUNCTION
+===================================================== */
 
-let jobs =
-    JSON.parse(localStorage.getItem("postedJobs")) || [];
+function getStorageData(keys) {
 
-let applications =
-    JSON.parse(localStorage.getItem("applications")) || [];
+    for (let i = 0; i < keys.length; i++) {
 
+        const data =
+            localStorage.getItem(keys[i]);
 
-/* COUNTS */
+        if (data) {
 
-document.getElementById("studentCount").textContent =
-    students.length;
+            try {
 
-document.getElementById("companyCount").textContent =
-    companies.length;
+                const parsed =
+                    JSON.parse(data);
 
-document.getElementById("jobCount").textContent =
-    jobs.length;
+                if (Array.isArray(parsed) &&
+                    parsed.length > 0) {
 
-document.getElementById("applicationCount").textContent =
-    applications.length;
+                    return parsed;
 
+                }
 
-/* CLOSE */
+            } catch (error) {
 
-function closeSections() {
+                console.log(
+                    "Invalid data:",
+                    keys[i]
+                );
 
-    document.getElementById("studentsSection").style.display = "none";
-    document.getElementById("companiesSection").style.display = "none";
-    document.getElementById("jobsSection").style.display = "none";
-    document.getElementById("applicationsSection").style.display = "none";
+            }
+
+        }
+
+    }
+
+    return [];
+
 }
 
 
-/* STUDENTS */
+
+/* =====================================================
+   GET STUDENTS
+===================================================== */
+
+function getStudents() {
+
+    return getStorageData([
+
+        "students",
+        "studentData",
+        "studentUsers",
+        "registeredStudents"
+
+    ]);
+
+}
+
+
+
+/* =====================================================
+   GET COMPANIES
+===================================================== */
+
+function getCompanies() {
+
+    return getStorageData([
+
+        "companies",
+        "companyData",
+        "companyUsers",
+        "registeredCompanies"
+
+    ]);
+
+}
+
+
+
+/* =====================================================
+   GET JOBS
+===================================================== */
+
+function getJobs() {
+
+    return getStorageData([
+
+        "postedJobs",
+        "jobs",
+        "jobData"
+
+    ]);
+
+}
+
+
+
+/* =====================================================
+   GET APPLICATIONS
+===================================================== */
+
+function getApplications() {
+
+    return getStorageData([
+
+        "applications",
+        "studentApplications",
+        "jobApplications"
+
+    ]);
+
+}
+
+
+
+/* =====================================================
+   UPDATE COUNTS
+===================================================== */
+
+function updateCounts() {
+
+    const students =
+        getStudents();
+
+    const companies =
+        getCompanies();
+
+    const jobs =
+        getJobs();
+
+    const applications =
+        getApplications();
+
+
+    document.getElementById(
+        "studentCount"
+    ).textContent =
+        students.length;
+
+
+    document.getElementById(
+        "companyCount"
+    ).textContent =
+        companies.length;
+
+
+    document.getElementById(
+        "jobCount"
+    ).textContent =
+        jobs.length;
+
+
+    document.getElementById(
+        "applicationCount"
+    ).textContent =
+        applications.length;
+
+}
+
+
+updateCounts();
+
+
+
+/* =====================================================
+   CLOSE ALL SECTIONS
+===================================================== */
+
+function closeSections() {
+
+    document.getElementById(
+        "studentsSection"
+    ).style.display = "none";
+
+
+    document.getElementById(
+        "companiesSection"
+    ).style.display = "none";
+
+
+    document.getElementById(
+        "jobsSection"
+    ).style.display = "none";
+
+
+    document.getElementById(
+        "applicationsSection"
+    ).style.display = "none";
+
+}
+
+
+
+/* =====================================================
+   VIEW STUDENTS
+===================================================== */
 
 function showStudents() {
 
     closeSections();
 
+
     const section =
-        document.getElementById("studentsSection");
+        document.getElementById(
+            "studentsSection"
+        );
+
 
     const container =
-        document.getElementById("studentsContainer");
+        document.getElementById(
+            "studentsContainer"
+        );
 
-    section.style.display = "block";
+
+    const students =
+        getStudents();
+
+
+    section.style.display =
+        "block";
+
 
     container.innerHTML = "";
+
 
     if (students.length === 0) {
 
         container.innerHTML = `
+
             <div class="empty">
-                <h3>No Students Registered</h3>
-                <p>No student registration data is available.</p>
+
+                <h3>
+                    No Students Registered
+                </h3>
+
+                <p>
+                    No student has registered
+                    in the placement system yet.
+                </p>
+
             </div>
+
         `;
 
         return;
+
     }
 
-    students.forEach(function(student) {
 
-        container.innerHTML += `
+    students.forEach(
+        function(student, index) {
 
-            <div class="item">
+            container.innerHTML += `
 
-                <h3>${student.name || "Student"}</h3>
+                <div class="item">
 
-                <p>
-                    <strong>Email:</strong>
-                    ${student.email || "Not available"}
-                </p>
+                    <h3>
+                        Student ${index + 1}
+                    </h3>
 
-                <p>
-                    <strong>Branch:</strong>
-                    ${student.branch || "Not available"}
-                </p>
+                    <p>
+                        <strong>
+                            Name:
+                        </strong>
 
-                <p>
-                    <strong>CGPA:</strong>
-                    ${student.cgpa || "Not available"}
-                </p>
+                        ${
+                            student.name ||
+                            student.fullName ||
+                            "Not Available"
+                        }
+                    </p>
 
-            </div>
-        `;
-    });
+                    <p>
+                        <strong>
+                            Email:
+                        </strong>
+
+                        ${
+                            student.email ||
+                            student.studentEmail ||
+                            "Not Available"
+                        }
+                    </p>
+
+                    <p>
+                        <strong>
+                            Branch:
+                        </strong>
+
+                        ${
+                            student.branch ||
+                            student.department ||
+                            "Not Available"
+                        }
+                    </p>
+
+                    <p>
+                        <strong>
+                            CGPA:
+                        </strong>
+
+                        ${
+                            student.cgpa ||
+                            "Not Available"
+                        }
+                    </p>
+
+                </div>
+
+            `;
+
+        }
+    );
+
 }
 
 
-/* COMPANIES */
+
+/* =====================================================
+   VIEW COMPANIES
+===================================================== */
 
 function showCompanies() {
 
     closeSections();
 
+
     const section =
-        document.getElementById("companiesSection");
+        document.getElementById(
+            "companiesSection"
+        );
+
 
     const container =
-        document.getElementById("companiesContainer");
+        document.getElementById(
+            "companiesContainer"
+        );
 
-    section.style.display = "block";
+
+    const companies =
+        getCompanies();
+
+
+    section.style.display =
+        "block";
+
 
     container.innerHTML = "";
+
 
     if (companies.length === 0) {
 
         container.innerHTML = `
+
             <div class="empty">
-                <h3>No Companies Registered</h3>
-                <p>No company registration data is available.</p>
-            </div>
-        `;
-
-        return;
-    }
-
-    companies.forEach(function(company) {
-
-        container.innerHTML += `
-
-            <div class="item">
 
                 <h3>
-                    ${company.companyName || company.name || "Company"}
+                    No Companies Registered
                 </h3>
 
                 <p>
-                    <strong>Email:</strong>
-                    ${company.email || "Not available"}
-                </p>
-
-                <p>
-                    <strong>Location:</strong>
-                    ${company.location || "Not available"}
+                    No company has registered
+                    in the placement system yet.
                 </p>
 
             </div>
+
         `;
-    });
+
+        return;
+
+    }
+
+
+    companies.forEach(
+        function(company, index) {
+
+            container.innerHTML += `
+
+                <div class="item">
+
+                    <h3>
+                        Company ${index + 1}
+                    </h3>
+
+                    <p>
+                        <strong>
+                            Company Name:
+                        </strong>
+
+                        ${
+                            company.companyName ||
+                            company.name ||
+                            "Not Available"
+                        }
+                    </p>
+
+                    <p>
+                        <strong>
+                            Email:
+                        </strong>
+
+                        ${
+                            company.email ||
+                            "Not Available"
+                        }
+                    </p>
+
+                    <p>
+                        <strong>
+                            Location:
+                        </strong>
+
+                        ${
+                            company.location ||
+                            company.address ||
+                            "Not Available"
+                        }
+                    </p>
+
+                </div>
+
+            `;
+
+        }
+    );
+
 }
 
 
-/* JOBS */
+
+/* =====================================================
+   VIEW JOBS
+===================================================== */
 
 function showJobs() {
 
     closeSections();
 
+
     const section =
-        document.getElementById("jobsSection");
+        document.getElementById(
+            "jobsSection"
+        );
+
 
     const container =
-        document.getElementById("jobsContainer");
+        document.getElementById(
+            "jobsContainer"
+        );
 
-    section.style.display = "block";
+
+    const jobs =
+        getJobs();
+
+
+    section.style.display =
+        "block";
+
 
     container.innerHTML = "";
+
 
     if (jobs.length === 0) {
 
         container.innerHTML = `
+
             <div class="empty">
-                <h3>No Jobs Posted</h3>
-                <p>No company has posted a job yet.</p>
-            </div>
-        `;
-
-        return;
-    }
-
-    jobs.forEach(function(job) {
-
-        container.innerHTML += `
-
-            <div class="item">
 
                 <h3>
-                    ${job.title || "Job"}
+                    No Jobs Posted
                 </h3>
 
                 <p>
-                    <strong>Description:</strong>
-                    ${job.description || "Not available"}
-                </p>
-
-                <p>
-                    <strong>Skills:</strong>
-                    ${job.skills || "Not specified"}
-                </p>
-
-                <p>
-                    <strong>Package:</strong>
-                    ${job.salary || "Not specified"}
-                </p>
-
-                <p>
-                    <strong>Location:</strong>
-                    ${job.location || "Not specified"}
-                </p>
-
-                <p>
-                    <strong>Status:</strong>
-                    ${job.status || "Active"}
+                    No company has posted
+                    a job yet.
                 </p>
 
             </div>
+
         `;
-    });
+
+        return;
+
+    }
+
+
+    jobs.forEach(
+        function(job, index) {
+
+            container.innerHTML += `
+
+                <div class="item">
+
+                    <h3>
+                        ${
+                            job.jobTitle ||
+                            job.title ||
+                            "Job"
+                        }
+                    </h3>
+
+                    <p>
+                        <strong>
+                            Description:
+                        </strong>
+
+                        ${
+                            job.description ||
+                            "Not Available"
+                        }
+                    </p>
+
+                    <p>
+                        <strong>
+                            Skills:
+                        </strong>
+
+                        ${
+                            job.skills ||
+                            job.requiredSkills ||
+                            "Not Available"
+                        }
+                    </p>
+
+                    <p>
+                        <strong>
+                            Salary:
+                        </strong>
+
+                        ${
+                            job.salary ||
+                            job.package ||
+                            "Not Available"
+                        }
+                    </p>
+
+                    <p>
+                        <strong>
+                            Minimum CGPA:
+                        </strong>
+
+                        ${
+                            job.minCGPA ||
+                            job.cgpa ||
+                            "Not Available"
+                        }
+                    </p>
+
+                    <p>
+                        <strong>
+                            Location:
+                        </strong>
+
+                        ${
+                            job.location ||
+                            "Not Available"
+                        }
+                    </p>
+
+                </div>
+
+            `;
+
+        }
+    );
+
 }
 
 
-/* APPLICATIONS */
+
+/* =====================================================
+   VIEW APPLICATIONS
+===================================================== */
 
 function showApplications() {
 
     closeSections();
 
+
     const section =
-        document.getElementById("applicationsSection");
+        document.getElementById(
+            "applicationsSection"
+        );
+
 
     const container =
-        document.getElementById("applicationsContainer");
+        document.getElementById(
+            "applicationsContainer"
+        );
 
-    section.style.display = "block";
+
+    const applications =
+        getApplications();
+
+
+    section.style.display =
+        "block";
+
 
     container.innerHTML = "";
+
 
     if (applications.length === 0) {
 
         container.innerHTML = `
+
             <div class="empty">
-                <h3>No Applications</h3>
-                <p>No student has applied for a job yet.</p>
-            </div>
-        `;
-
-        return;
-    }
-
-    applications.forEach(function(application) {
-
-        container.innerHTML += `
-
-            <div class="item">
 
                 <h3>
-                    ${application.jobTitle || "Job Application"}
+                    No Applications Yet
                 </h3>
 
                 <p>
-                    <strong>Student Email:</strong>
-                    ${application.studentEmail || "Not available"}
-                </p>
-
-                <p>
-                    <strong>Skills:</strong>
-                    ${application.skills || "Not specified"}
-                </p>
-
-                <p>
-                    <strong>Location:</strong>
-                    ${application.location || "Not specified"}
-                </p>
-
-                <p>
-                    <strong>Status:</strong>
-                    ${application.status || "Applied"}
+                    No student has applied
+                    for a job yet.
                 </p>
 
             </div>
+
         `;
-    });
+
+        return;
+
+    }
+
+
+    applications.forEach(
+        function(application, index) {
+
+            container.innerHTML += `
+
+                <div class="item">
+
+                    <h3>
+                        Application ${index + 1}
+                    </h3>
+
+                    <p>
+                        <strong>
+                            Job:
+                        </strong>
+
+                        ${
+                            application.jobTitle ||
+                            application.title ||
+                            "Not Available"
+                        }
+                    </p>
+
+                    <p>
+                        <strong>
+                            Student Email:
+                        </strong>
+
+                        ${
+                            application.studentEmail ||
+                            application.email ||
+                            "Not Available"
+                        }
+                    </p>
+
+                    <p>
+                        <strong>
+                            Skills:
+                        </strong>
+
+                        ${
+                            application.skills ||
+                            "Not Available"
+                        }
+                    </p>
+
+                    <p>
+                        <strong>
+                            Status:
+                        </strong>
+
+                        ${
+                            application.status ||
+                            "Applied"
+                        }
+                    </p>
+
+                </div>
+
+            `;
+
+        }
+    );
+
 }
+
 
 </script>
 
+
 </body>
+
 </html>
